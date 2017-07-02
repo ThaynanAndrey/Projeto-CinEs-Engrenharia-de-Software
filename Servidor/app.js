@@ -1,7 +1,5 @@
 let express = require('express');
 let mongoose = require('mongoose');
-let router = express.Router();
-
 
 let app = express();
 mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
@@ -9,17 +7,24 @@ mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
 	console.log("erro:"+err);
 });
 
-let filme = require('./controladores/FilmeCtrl');
-app.use('', filme);
+let filmeRouter = require('./controladores/FilmeRouter.js');
+let usuarioRouter = require('./controladores/UsuarioRouter.js');
+let cadeiraRouter = require('./controladores/CadeiraRouter.js');
+let ingressoRouter = require('./controladores/IngressoRouter.js');
+let salaRouter = require('./controladores/SalaRouter.js');
+let secaoRouter = require('./controladores/SecaoRouter.js');
 
 
-//Get filmes
-//router.get('/filmes', FilmeCtrl.getFilmes);
+app.use('/filme', filmeRouter);
+app.use('/usuario', usuarioRouter);
+app.use('/cadeira', cadeiraRouter);
+app.use('/ingresso', ingressoRouter);
+app.use('/sala', salaRouter);
+app.use('/secao', secaoRouter);
 
-app.get("/", function(req,res){
-	console.log("entrou");
-});
 
 app.listen(8080, function(){
 	console.log("Servidor está correndo na porta 8080");
 });
+
+module.exports = app;
