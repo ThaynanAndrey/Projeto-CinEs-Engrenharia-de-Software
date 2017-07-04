@@ -1,9 +1,15 @@
 let express = require('express');
 let secaoRouter = express.Router();
-let secao = require('../modelos/Secao.js');
+let Secao = require('../modelos/Secao.js');
 
 secaoRouter.get('', function(req, res) {
-  console.log("secao_get");
+  Secao.find({}, function(err, data) {
+		if (err) {
+			res.sendStatus(500);
+		} else {
+			res.json(data);
+		}
+	});
 });
 secaoRouter.get('/:id', function(req, res) {
   console.log("secao_get_id");

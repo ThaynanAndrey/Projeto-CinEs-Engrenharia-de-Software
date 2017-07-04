@@ -1,9 +1,15 @@
 let express = require('express');
 let salaRouter = express.Router();
-let sala = require('../modelos/Sala.js');
+let Sala = require('../modelos/Sala.js');
 
 salaRouter.get('', function(req, res) {
-  console.log("sala_get");
+  Sala.find({}, function(err, data) {
+		if (err) {
+			res.sendStatus(500);
+		} else {
+			res.json(data);
+		}
+	});
 });
 salaRouter.get('/:id', function(req, res) {
   console.log("sala_get_id");

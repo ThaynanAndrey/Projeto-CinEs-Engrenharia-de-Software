@@ -1,9 +1,15 @@
 let express = require('express');
 let usuarioRouter = express.Router();
-let usuario = require('../modelos/Usuario.js');
+let Usuario = require('../modelos/Usuario.js');
 
 usuarioRouter.get('', function(req, res) {
-  console.log("usuario_get");
+  Usuario.find({}, function(err, data) {
+		if (err) {
+			res.sendStatus(500);
+		} else {
+			res.json(data);
+		}
+	});
 });
 usuarioRouter.get('/:id', function(req, res) {
   console.log("usuario_get_id");
