@@ -1,7 +1,13 @@
 let express = require('express');
 let mongoose = require('mongoose');
-
 let bodyParser = require('body-parser');
+
+let app = express();
+
+mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
+	console.log("Conectou no db");
+	console.log("erro:"+err);
+});
 
 let filmeRouter = require('./controladores/FilmeRouter.js');
 let usuarioRouter = require('./controladores/UsuarioRouter.js');
@@ -9,14 +15,6 @@ let cadeiraRouter = require('./controladores/CadeiraRouter.js');
 let ingressoRouter = require('./controladores/IngressoRouter.js');
 let salaRouter = require('./controladores/SalaRouter.js');
 let secaoRouter = require('./controladores/SecaoRouter.js');
-
-let app = express();
-mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
-	console.log("Conectou no db");
-	console.log("erro:"+err);
-});
-
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

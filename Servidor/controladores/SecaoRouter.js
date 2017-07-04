@@ -12,16 +12,53 @@ secaoRouter.get('', function(req, res) {
 	});
 });
 secaoRouter.get('/:id', function(req, res) {
-  console.log("secao_get_id");
+  var idSecao = { _id: req.params.id };
+
+	Secao.findOne(idSecao, function(err, data) {
+		if (err || data == null) {
+			res.sendStatus(404);
+		} else {
+			res.json(data);
+		}
+	});
 });
 secaoRouter.post('', function(req, res) {
-  console.log("secao_post");
+  var novaSecao = new Secao(req.body);
+
+	novaSecao.save(function(err, data) {
+
+		console.log(data);
+
+		if (err) {
+			res.status(400).json(err);
+		} else {
+			res.status(201).json(data);
+		}
+	});
 });
 secaoRouter.delete('/:id', function(req, res) {
-  console.log("secao_delete_id");
+  var idSecao = { _id: req.params.id };
+
+	Secao.remove(idSecao, function(err, data) {
+		if (err) {
+			res.status(400).json(err);
+		} else {
+			res.json(data);
+		}
+	});
 });
 secaoRouter.put('/:id', function(req, res) {
-  console.log("secao_put_id");
+  var idSecao = { _id: req.params.id };
+	var modelo = req.body;
+	delete modelo._id;
+
+	Secao.update(idSecao, modelo, function(err, data) {
+		if (err) {
+			res.status(400).json(err);
+		} else {
+			res.json(data);
+		}
+	});
 });
 
 module.exports = secaoRouter;

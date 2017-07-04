@@ -12,16 +12,53 @@ usuarioRouter.get('', function(req, res) {
 	});
 });
 usuarioRouter.get('/:id', function(req, res) {
-  console.log("usuario_get_id");
+  var idUsuario = { _id: req.params.id };
+
+	Usuario.findOne(idUsuario, function(err, data) {
+		if (err || data == null) {
+			res.sendStatus(404);
+		} else {
+			res.json(data);
+		}
+	});
 });
 usuarioRouter.post('', function(req, res) {
-  console.log("usuario_post");
+  var novoUsuario = new Usuario(req.body);
+
+	novoUsuario.save(function(err, data) {
+
+		console.log(data);
+
+		if (err) {
+			res.status(400).json(err);
+		} else {
+			res.status(201).json(data);
+		}
+	});
 });
 usuarioRouter.delete('/:id', function(req, res) {
-  console.log("usuario_delete_id");
+  var idUsuario = { _id: req.params.id };
+
+	Usuario.remove(idUsuario, function(err, data) {
+		if (err) {
+			res.status(400).json(err);
+		} else {
+			res.json(data);
+		}
+	});
 });
 usuarioRouter.put('/:id', function(req, res) {
-  console.log("usuario_put_id");
+  var idUsuario = { _id: req.params.id };
+	var modelo = req.body;
+	delete modelo._id;
+
+	Usuario.update(idUsuario, modelo, function(err, data) {
+		if (err) {
+			res.status(400).json(err);
+		} else {
+			res.json(data);
+		}
+	});
 });
 
 module.exports = usuarioRouter;
