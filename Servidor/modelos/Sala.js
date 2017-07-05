@@ -7,7 +7,7 @@ let salaSchema = new Schema({
 		required:true
 	},
 	cadeiras: {
-		type:[String]
+		type:[{ type: Schema.Types.ObjectId, ref: 'Cadeira' }]
 	}
 });
 
