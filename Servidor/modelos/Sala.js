@@ -7,7 +7,7 @@ let salaSchema = new Schema({
 		required:true
 	},
 	cadeiras: {
-		type:[{ type: Schema.Types.ObjectId, ref: 'Cadeira' }]
+		type:[{ type:mongoose.Schema.ObjectId, ref: 'Cadeira' }]
 	}
 });
 

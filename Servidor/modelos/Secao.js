@@ -7,8 +7,7 @@ let secaoSchema = new Schema({
 		required:true
 	},
 	sala: {
-		type:{type: mongoose.Schema.Types.ObjectId, ref: 'Sala'},
-		required:true
+		type:{type: mongoose.Schema.ObjectId, ref: 'Sala'}
 	}
 });
 

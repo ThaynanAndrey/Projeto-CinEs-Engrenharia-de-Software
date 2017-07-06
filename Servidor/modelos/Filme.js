@@ -7,7 +7,7 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	secoes: {
-		type:[{ type: Schema.Types.ObjectId, ref: 'Secao' }]
+		type:[{ type:  mongoose.Schema.ObjectId, ref: 'Secao' }]
 	},
 	genero: {
 		type:String,
