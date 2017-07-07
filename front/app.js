@@ -1,4 +1,4 @@
-angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages']) 
+angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarousel']) 
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     

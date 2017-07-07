@@ -15,7 +15,7 @@ let usuarioSchema = new Schema({
 		required:true
 	},
 	ingressos: {
-		type:[String]
+		type:[{ type:  mongoose.Schema.ObjectId, ref: 'Ingresso' }]
 	}
 });
 

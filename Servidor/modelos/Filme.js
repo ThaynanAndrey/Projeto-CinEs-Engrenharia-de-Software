@@ -7,7 +7,7 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	secoes: {
-		type:[String]
+		type:[{ type:  mongoose.Schema.ObjectId, ref: 'Secao' }]
 	},
 	genero: {
 		type:String,
@@ -25,6 +25,9 @@ let filmeSchema = new Schema({
 		type:Number,
 		required:true
 	},
+	imagem:{
+		type: String
+	}
 });
 
 let filme = mongoose.model('Filme',filmeSchema);
