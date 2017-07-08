@@ -19,7 +19,8 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
 
             .state('perfil', {
                 url: "/perfil",
-                templateUrl: "views/perfil.html"
+                templateUrl: "views/perfil.html",
+                controller: "perfilCtrl"
             })
 
             .state('filmes', {
@@ -36,6 +37,6 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
             .state('registro', {
                 url: "/registro",
                 templateUrl: "views/registro.html",
-                controller: "RegistroCtrl"
+                controller: "registroCtrl"
             });
 }]); 

@@ -14,3 +14,12 @@ md-card {
   right: 0;
   margin-bottom: 20px;
 }
+
+.md-dialog-container {
+  position: absolute;
+}
+
+md-dialog {
+  max-width: 90%;
+  max-height: 90%;
+}
