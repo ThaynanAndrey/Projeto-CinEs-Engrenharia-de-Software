@@ -1,3 +1,48 @@
-<div >
-	
+ <div style="padding-left: 13%; padding-right: 13%;" flex>
+ 	<h1> Registro </h1>
+  <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+    <div flex="25">
+      <md-input-container class="md-block">
+          <label>Usuário</label>
+          <input required ng-model="registro.nome">
+        </md-input-container>
+
+      <md-input-container class="md-block">
+          <label>E-mail</label>
+          <input required ng-model="ctrl.email">
+        </md-input-container>
+
+      <md-input-container class="md-block">
+          <label>Senha</label>
+          <input required type="password" ng-model="ctrl.senha">
+        </md-input-container>
+
+      <md-input-container class="md-block">
+          <label>Repita a Senha</label>
+          <input required type="password" ng-model="ctrl.repetir.senha">
+        </md-input-container>
+
+	<md-input-container class="md-block">
+          <label>CPF</label>
+          <input required ng-model="ctrl.cpf">
+        </md-input-container>
+      </div>	
+  </md-content>
+
+  <md-input-container class="md-block">
+        <md-checkbox name="tos" ng-model="project.tos" required>
+          Eu estou de acordo com os termos de uso
+        </md-checkbox>
+        <div ng-messages="projectForm.tos.$error" multiple md-auto-hide="false">
+          <div ng-message="required">
+            Para prosseguir você deve concordar com os termos de uso.
+          </div>
+        </div>
+      </md-input-container>
+
 </div>
+  <div class="demo-md-panel-content" style="padding-left: 13%;" flex>
+    <md-button class="animation-target md-primary md-raised" ng-click="nada()">
+      Registrar
+    </md-button>
+  </div>

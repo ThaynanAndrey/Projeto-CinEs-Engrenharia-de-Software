@@ -34,6 +34,7 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
 
             .state('registro', {
                 url: "/registro",
-                templateUrl: "views/registro.html"
+                templateUrl: "views/registro.html",
+                controller: "RegistroCtrl"
             });
 }]); 
