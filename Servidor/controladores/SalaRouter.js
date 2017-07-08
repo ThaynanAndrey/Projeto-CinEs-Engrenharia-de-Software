@@ -3,7 +3,6 @@ let salaRouter = express.Router();
 let Sala = require('../modelos/Sala.js');
 
 salaRouter.get('', function(req, res) {
-	console.log("caio é gay 1000% no back");
   Sala.find({}, function(err, data) {
 		if (err) {
 			res.sendStatus(500);

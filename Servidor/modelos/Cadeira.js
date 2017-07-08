@@ -9,9 +9,21 @@ let cadeiraSchema = new Schema({
 	disponivel: {
 		type:Boolean,
 		required:true
+	},
+	ingresso: {
+		type: { 
+			type:  mongoose.Schema.ObjectId,
+			ref: 'Ingresso'
+		}
+	},
+	sala: {
+		type: { 
+			type:  mongoose.Schema.ObjectId,
+			ref: 'Sala'
+		}
 	}
 });
 
-let cadeira = mongoose.model('Cadeira',cadeiraSchema);
+let cadeira = mongoose.model('Cadeira', cadeiraSchema);
 
 module.exports = cadeira;

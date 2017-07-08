@@ -7,7 +7,10 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	secoes: {
-		type:[{ type:  mongoose.Schema.ObjectId, ref: 'Secao' }]
+		type:[{ 
+				type:  mongoose.Schema.ObjectId,
+				ref: 'Secao'
+			}]
 	},
 	genero: {
 		type:String,
@@ -30,6 +33,6 @@ let filmeSchema = new Schema({
 	}
 });
 
-let filme = mongoose.model('Filme',filmeSchema);
+let filme = mongoose.model('Filme', filmeSchema);
 
 module.exports = filme;

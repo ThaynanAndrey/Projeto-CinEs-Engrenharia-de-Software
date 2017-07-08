@@ -1,0 +1,20 @@
+{
+  "name": "cines",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-material": "^1.1.4",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node express",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

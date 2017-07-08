@@ -11,6 +11,7 @@ filmeRouter.get('', function(req, res) {
 		}
 	});
 });
+
 filmeRouter.get('/:id', function(req, res) {
   var idFilme = { _id: req.params.id };
 
@@ -22,6 +23,7 @@ filmeRouter.get('/:id', function(req, res) {
 		}
 	});
 });
+
 filmeRouter.post('', function(req, res) {
   var novoFilme = new Filme(req.body);
 
@@ -36,6 +38,7 @@ filmeRouter.post('', function(req, res) {
 		}
 	});
 });
+
 filmeRouter.delete('/:id', function(req, res) {
   var idFilme = { _id: req.params.id };
 
@@ -47,6 +50,7 @@ filmeRouter.delete('/:id', function(req, res) {
 		}
 	});
 });
+
 filmeRouter.put('/:id', function(req, res) {
   var idFilme = { _id: req.params.id };
 	var modelo = req.body;
@@ -60,4 +64,5 @@ filmeRouter.put('/:id', function(req, res) {
 		}
 	});
 });
+
 module.exports = filmeRouter;
