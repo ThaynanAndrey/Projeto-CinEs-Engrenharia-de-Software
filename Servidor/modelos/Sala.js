@@ -7,10 +7,19 @@ let salaSchema = new Schema({
 		required:true
 	},
 	cadeiras: {
-		type:[{ type:mongoose.Schema.ObjectId, ref: 'Cadeira' }]
+		type:[{
+				type:mongoose.Schema.ObjectId,
+				ref: 'Cadeira' 
+			}]
+	},
+	sessao: {
+		type: { 
+			type:  mongoose.Schema.ObjectId,
+			ref: 'Sessao'
+		}
 	}
 });
 
-let sala = mongoose.model('Sala',salaSchema);
+let sala = mongoose.model('Sala', salaSchema);
 
 module.exports = sala;

@@ -1,0 +1,71 @@
+<html ng-app="cines">
+
+	<head>		
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+		<title>CinES</title>
+		<link rel="stylesheet" href="css/estilo.css">
+		<link rel="stylesheet" href="css/jk-carousel.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" style="z-index: 1000;background-color:#002d60;">
+		    <div class="container-fluid" ng-controller="homeCtrl">
+		      	<div class="navbar-header">
+					<md-button style="color:white; font-size: 25px;text-transform: none" ng-click="toggleLeft()">
+						Menu
+					</md-button>
+		    	</div>
+				<div class="navbar-header" style="float:right">
+				    <md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ui-sref="login">
+				    	Login
+				    </md-button>
+				</div>
+		    </div>
+	  	</nav>
+
+	  	<div ng-controller="homeCtrl" layout="column" style=" margin-top:50px" ng-cloak>
+		  <section layout="row" flex>
+		    <md-sidenav class="md-sidenav-left" md-component-id="left"
+		                md-disable-backdrop md-whiteframe="4" style=" width:200">
+		      <md-content layout-margin>
+		      	<md-button type="text" ui-sref="home" class="list-group-item list-group-item-info" style="margin-left:10px">
+					Página inicial
+				</md-button>
+				<md-button type="text" ui-sref="filmes" class="list-group-item list-group-item-info" style="margin-left:10px">
+					Filmes
+				</md-button>
+				<md-button type="text" ui-sref="perfil" class="list-group-item list-group-item-info" style="margin-left:10px">
+					Perfil
+				</md-button>
+		      </md-content>
+		    </md-sidenav>
+		  </section>
+		</div>
+
+		<div ui-view style="width: 100%; height: 100%;"></div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script src="node_modules/angular/angular.min.js"></script>
+	  	<script src="node_modules/jk-carousel/jk-carousel.min.js"></script>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+
+	  	<!-- Angular Material Library -->
+	  	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+		<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+ 
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="js/controllers/homeCtrl.js"></script>
+		<script type="text/javascript" src="js/services/homeService.js"></script>
+
+	</body>
+
+</html>

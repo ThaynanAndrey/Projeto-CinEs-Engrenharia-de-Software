@@ -8,9 +8,21 @@ let ingressoSchema = new Schema({
 	},
 	isMeiaEntrada: {
 		type:Boolean
+	},
+	cadeira: {
+		type: { 
+			type:  mongoose.Schema.ObjectId,
+			ref: 'Cadeira'
+		}
+	},
+	usuario: {
+		type: { 
+			type:  mongoose.Schema.ObjectId,
+			ref: 'Usuario'
+		}
 	}
 });
 
-let ingresso = mongoose.model('Ingresso',ingressoSchema);
+let ingresso = mongoose.model('Ingresso', ingressoSchema);
 
 module.exports = ingresso;
