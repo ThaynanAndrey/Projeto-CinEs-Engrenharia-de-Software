@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("pagamentoCtrl", ['$scope', 'RestService', function($scope, RestService) {
+.controller("pagamentoCtrl", ['$scope', '$mdToast', '$state', 'RestService', function($scope, $mdToast, $state, RestService) {
 
 	let precoMeia = 10;
 	let precoInteira = 20;
@@ -14,6 +14,28 @@ angular.module("cines")
 
 	$scope.precoIngresso = function () {
 		return ($scope.user.entradaMeia * precoMeia) + ($scope.user.entradaInteira * precoInteira);
+	};
+
+	$scope.comprarIngresso = function(){
+		if(($scope.user.entradaMeia+$scope.user.entradaInteira) === 0){
+			mostrarToast("Nenhum ingresso selecionado.");
+		}else{
+			mostrarToast("Compra realizada com sucesso!");
+			goTo('home');
+		}
+	};
+
+	function mostrarToast(frase){
+		$mdToast.show(
+      		$mdToast.simple()
+        		.textContent(frase)
+        		.position('top right')
+        		.hideDelay(3000)
+    	);
+	};
+
+	function goTo(state){
+		$state.go(state);
 	};
 
 }]);

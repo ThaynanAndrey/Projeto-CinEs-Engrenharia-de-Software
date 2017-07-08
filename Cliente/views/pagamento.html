@@ -4,38 +4,39 @@
 		<md-content layout-gt-sm="row">
 			<h3>Ingresso(s): </h3>
 			<md-input-container>
-		       	<label>Meia</label>
-		       	<input ng-model="user.entradaMeia" type="number">
-		    </md-input-container>
-		    <md-input-container>
-		       	<label>Inteira</label>
-		       	<input ng-model="user.entradaInteira" type="number">
-		    </md-input-container>
+		  	<label>Meia</label>
+		  	<input ng-model="user.entradaMeia" type="number" min="0">
+		  </md-input-container>
+		  <md-input-container>
+		  	<label>Inteira</label>
+		    <input ng-model="user.entradaInteira" type="number" min="0">
+		  </md-input-container>
 		</md-container>
 	</div>
 	<div>
 		<h4>Seu pedido: {{user.entradaMeia+user.entradaInteira}} ingresso(s). Total R$ {{precoIngresso()}}</h4>
 	</div>
-	<form>
+	<form name="pagamentoForm">
 		<md-content layout-gt-sm="row">
 			<md-input-container>
 		       	<label>Nome Completo</label>
-		       	<input ng-model="user.name">
+		       	<input ng-model="user.name" required>
 		    </md-input-container>
 		    <md-input-container>
 		       	<label>Numero do Cartao</label>
-		       	<input ng-model="user.numeroCartao">
+		       	<input ng-model="user.numeroCartao" required>
 		    </md-input-container>
 		</md-content/>
 		<md-content layout-gt-sm="row">
 			<md-input-container>
 		       	<label>Código de Segurança</label>
-		       	<input ng-model="user.codigoDeSeguranca">
+		       	<input ng-model="user.codigoDeSeguranca" maxlength="3" required>
 		    </md-input-container>
 		    <md-input-container>
-		       	<label>Validade</label>
-		       	<input ng-model="user.validadeCartao">
+		       	<label>Ano de Validade</label>
+		       	<input ng-model="user.validadeCartao" maxlength="4" required>
 		    </md-input-container>
 		</md-content/>
 	</form>
+	<md-button class="md-raised md-primary" ng-click="comprarIngresso()" ng-disabled="pagamentoForm.$invalid">Realizar Compra</md-button>
 </div>
