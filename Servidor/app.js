@@ -4,7 +4,7 @@ let bodyParser = require('body-parser');
 
 let cors = require('cors');
 let app = express();
-let routerMiddleware = require('./middleware/routerMiddleware');
+let intermediadorDeRotas = require('./intermediadorDeRotas/intermediadorDeRotas');
 
 app.use(cors());
 
@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-routerMiddleware.set(app);
+intermediadorDeRotas.set(app);
 
 app.listen(8080, function(){
 	console.log("Servidor está correndo na porta 8080");
