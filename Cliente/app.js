@@ -29,7 +29,8 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
 
             .state('pagamento', {
                 url: "/pagamento",
-                templateUrl: "views/pagamento.html"
+                templateUrl: "views/pagamento.html",
+                controller: "pagamentoCtrl"
             })
 
             .state('registro', {
