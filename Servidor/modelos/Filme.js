@@ -1,6 +1,9 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+/**
+ * Esquema contendo atributos e relações do Filme
+ */
 let filmeSchema = new Schema({
 	nome: {
 		type:String,

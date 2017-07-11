@@ -1,6 +1,9 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+/**
+ * Esquema contendo atributos e relações da Secao
+ */
 let secaoSchema = new Schema({	
 	horario: {
 		type:Date,

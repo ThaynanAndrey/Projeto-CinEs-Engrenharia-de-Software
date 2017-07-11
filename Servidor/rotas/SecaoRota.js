@@ -2,6 +2,9 @@ let express = require('express');
 let secaoRouter = express.Router();
 let Secao = require('../modelos/Secao.js');
 
+/**
+ * Requisicao get a rota da página da secao
+ */
 secaoRouter.get('', function(req, res) {
   Secao.find({}, function(err, data) {
 		if (err) {
@@ -11,6 +14,10 @@ secaoRouter.get('', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao get a rota da página da secao de acordo com o id recebido
+ */
 secaoRouter.get('/:id', function(req, res) {
   var idSecao = { _id: req.params.id };
 
@@ -22,6 +29,10 @@ secaoRouter.get('/:id', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao post a rota da página da secao
+ */
 secaoRouter.post('', function(req, res) {
   var novaSecao = new Secao(req.body);
 
@@ -36,6 +47,10 @@ secaoRouter.post('', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao delete a rota da página da secao de acordo com o id recebido
+ */
 secaoRouter.delete('/:id', function(req, res) {
   var idSecao = { _id: req.params.id };
 
@@ -47,6 +62,10 @@ secaoRouter.delete('/:id', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao put a rota da página da secao de acordo com o id recebido
+ */
 secaoRouter.put('/:id', function(req, res) {
   var idSecao = { _id: req.params.id };
 	var modelo = req.body;

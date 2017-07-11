@@ -1,6 +1,9 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+/**
+ * Esquema contendo atributos e relações da Sala
+ */
 let salaSchema = new Schema({
 	numeracao: {
 		type:Number,

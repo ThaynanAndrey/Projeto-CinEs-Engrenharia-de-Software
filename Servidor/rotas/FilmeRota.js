@@ -2,6 +2,9 @@ let express = require('express');
 let filmeRouter = express.Router();
 let Filme = require('../modelos/Filme.js');
 
+/**
+ * Requisicao get a rota da página que exibe os filmes
+ */
 filmeRouter.get('', function(req, res) {
   Filme.find({}, function(err, data) {
 		if (err) {
@@ -12,6 +15,9 @@ filmeRouter.get('', function(req, res) {
 	});
 });
 
+/**
+ * Requisicao get a rota da página que exibe os filmes de acordo com o id recebido
+ */
 filmeRouter.get('/:id', function(req, res) {
   var idFilme = { _id: req.params.id };
 
@@ -24,6 +30,9 @@ filmeRouter.get('/:id', function(req, res) {
 	});
 });
 
+/**
+ * Requisicao post a rota da página que exibe os filmes
+ */
 filmeRouter.post('', function(req, res) {
   var novoFilme = new Filme(req.body);
 
@@ -39,6 +48,9 @@ filmeRouter.post('', function(req, res) {
 	});
 });
 
+/**
+ * Requisicao delete a rota da página que exibe os filmes de acordo com o id recebido
+ */
 filmeRouter.delete('/:id', function(req, res) {
   var idFilme = { _id: req.params.id };
 
@@ -51,6 +63,10 @@ filmeRouter.delete('/:id', function(req, res) {
 	});
 });
 
+
+/**
+ * Requisicao put a rota da página que exibe os filmes de acordo com o id recebido
+ */
 filmeRouter.put('/:id', function(req, res) {
   var idFilme = { _id: req.params.id };
 	var modelo = req.body;

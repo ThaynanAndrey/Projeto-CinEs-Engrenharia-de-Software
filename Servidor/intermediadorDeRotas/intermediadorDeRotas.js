@@ -7,6 +7,11 @@ let ingressoRota = require('../rotas/IngressoRota.js');
 let salaRota = require('../rotas/SalaRota.js');
 let secaoRota = require('../rotas/SecaoRota.js');
 
+/**
+ * Configura a o sistema gerenciando as rotas de cada uma das requisições
+ *
+ * @param {Object} app - Objeto que encapsula a aplicação Express
+ */
 intermediadorDeRotas.set = function set(app){
 	app.use('/filme', filmeRota);
 	app.use('/usuario', usuarioRota);
