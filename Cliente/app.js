@@ -1,11 +1,11 @@
 angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarousel'])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-    
+
     $urlRouterProvider.otherwise("/");
-     
+
     $stateProvider
-            
+
             .state('home', {
                 url: "/",
                 templateUrl: "views/home.html",
@@ -36,6 +36,12 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
                 controller: "pagamentoCtrl"
             })
 
+            .state('compraRealizada', {
+                url: "/compraRealizada",
+                templateUrl: "views/compraRealizada.html",
+                controller: "pagamentoCtrl"
+            })
+
             .state('registro', {
                 url: "/registro",
                 templateUrl: "views/registro.html",
@@ -47,4 +53,4 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
                 templateUrl: "views/compra.html",
                 controller: "compraCtrl"
             });
-}]); 
+}]);

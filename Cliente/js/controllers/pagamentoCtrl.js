@@ -12,6 +12,8 @@ angular.module("cines")
 	$scope.user.codigoDeSeguranca = "";
 	$scope.user.validadeCartao = "";
 
+	$scope.qrCode = "../../images/qrcode.40772041.png"
+
 	$scope.precoIngresso = function () {
 		return ($scope.user.entradaMeia * precoMeia) + ($scope.user.entradaInteira * precoInteira);
 	};

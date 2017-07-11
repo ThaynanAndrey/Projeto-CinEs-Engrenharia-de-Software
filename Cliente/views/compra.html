@@ -6,7 +6,7 @@
 
 	<div flex-xs flex-gt-xs="60" layout="row" >
 		<h3>Data: </h3>
-		<md-datepicker ng-model="dataSelecionada" md-placeholder="Enter date" style="margin-right:20px; margin-top:15px;"></md-datepicker>	
+		<md-datepicker ng-model="dataSelecionada" md-placeholder="Enter date" style="margin-right:20px; margin-top:15px;"></md-datepicker>
 		<h3>Horários: </h3>
 		<md-select class="md-errors-spacer" style="margin-left:10px" ng-model="horarioSelecionado" placeholder="Selecione">
 			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario">
@@ -16,6 +16,6 @@
 	</div>
 	<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
 	</br>
-    <button ng-click="viewScope()">View scope</button>
-	<button ui-sref="pagamento">Realizar compra</button>
+  <md-button class="md-raised md-primary" ng-click="viewScope()">View scope</md-button>
+	<md-button class="md-raised md-primary" ui-sref="pagamento">Realizar compra</md-button>
 </div>
