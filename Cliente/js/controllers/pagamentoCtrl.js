@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("pagamentoCtrl", ['$scope', '$mdToast', '$state', 'RestService', function($scope, $mdToast, $state, RestService) {
+.controller("pagamentoCtrl", ['$scope', '$mdToast', 'RestService', function($scope, $mdToast, RestService) {
 
 	let precoMeia = 10;
 	let precoInteira = 20;
@@ -33,9 +33,4 @@ angular.module("cines")
         		.hideDelay(3000)
     	);
 	};
-
-	function goTo(state){
-		$state.go(state);
-	};
-
 }]);

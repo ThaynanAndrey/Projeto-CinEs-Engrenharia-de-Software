@@ -14,7 +14,8 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
 
             .state('login', {
                 url: "/login",
-                templateUrl: "views/login.html"
+                templateUrl: "views/login.html",
+                controller: "loginCtrl"
             })
 
             .state('perfil', {
@@ -25,7 +26,8 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
 
             .state('filmes', {
                 url: "/filmes",
-                templateUrl: "views/filmes.html"
+                templateUrl: "views/filmes.html",
+                controller: "filmesCtrl"
             })
 
             .state('pagamento', {
@@ -38,5 +40,11 @@ angular.module("cines", ['ui.router', 'ngMaterial', 'ngMessages','jkAngularCarou
                 url: "/registro",
                 templateUrl: "views/registro.html",
                 controller: "registroCtrl"
+            })
+
+            .state('compra', {
+                url: "/compra",
+                templateUrl: "views/compra.html",
+                controller: "compraCtrl"
             });
 }]); 

@@ -1,3 +1,50 @@
-<div >
-	
+<div>
+	<h2 class="center">Filmes em Cartaz</h2>
+	<div flex-xs flex-gt-xs="50" layout="row" ng-repeat="filme in filmes" style="margin:0px auto">
+		<md-card style="width: 1300px;">
+	        <md-card-header>
+	          <md-card-header-text>
+	            <span class="md-title">{{filme.nome}}</span>
+	          </md-card-header-text>
+	        </md-card-header>
+	        
+	       <img ng-src="{{filme.imagem}}" class="md-card-image" alt="Washed Out">
+	        
+	      </md-card>
+		
+		  <md-card style="width: 1000px;">
+
+		  	<md-card-title>
+	          <md-card-title-text>
+	            <span class="md-subhead">Gênero: {{filme.genero}}</span>
+	            <span class="md-subhead">Classificação: Proibido para menores de {{filme.classificacao}}</span>
+	          </md-card-title-text>
+	        </md-card-title>
+
+	        <md-card-content>
+	          <h4>Sinopse</h4>
+	          <p>
+	            {{filme.sinopse}}
+	          </p>
+	        </md-card-content>
+
+		  	<table class="table">
+			  <thead class="thead-inverse">
+			    <tr>
+			      <th class="center">Sala</th>
+			      <th class="center">Horário</th>
+			    </tr>
+			  </thead>
+			  <tbody ng-repeat="sessao in filme.sessoes">
+			    <tr class="center">
+			      <td>{{sessao.sala}}</td>
+			      <td>{{sessao.horario}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+
+			<md-button class="md-raised md-warn" ui-sref="compra" ng-click="selecionarFilme(filme)">Selecionar Filme</md-button>
+
+	      </md-card>
+    </div>
 </div>

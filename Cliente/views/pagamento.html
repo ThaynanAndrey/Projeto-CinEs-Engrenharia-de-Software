@@ -18,25 +18,25 @@
 	</div>
 	<form name="pagamentoForm">
 		<md-content layout-gt-sm="row">
-			<md-input-container>
+			<md-input-container flex="50">
 		       	<label>Nome Completo</label>
 		       	<input ng-model="user.name" required>
 		    </md-input-container>
-		    <md-input-container>
+		    <md-input-container flex="50">
 		       	<label>Numero do Cartao</label>
 		       	<input ng-model="user.numeroCartao" required>
 		    </md-input-container>
 		</md-content/>
 		<md-content layout-gt-sm="row">
-			<md-input-container>
+			<md-input-container flex="50">
 		       	<label>Código de Segurança</label>
 		       	<input ng-model="user.codigoDeSeguranca" maxlength="3" required>
 		    </md-input-container>
-		    <md-input-container>
+		    <md-input-container flex="50">
 		       	<label>Ano de Validade</label>
 		       	<input ng-model="user.validadeCartao" maxlength="4" required>
 		    </md-input-container>
 		</md-content/>
 	</form>
-	<md-button class="md-raised md-primary" ng-click="comprarIngresso()" ng-disabled="pagamentoForm.$invalid">Realizar Compra</md-button>
+	<md-button class="md-raised md-primary" ng-click="comprarIngresso()" ui-sref="home" ng-disabled="pagamentoForm.$invalid">Realizar Compra</md-button>
 </div>

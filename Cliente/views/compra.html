@@ -1,0 +1,20 @@
+<div style="padding-left: 20%; padding-right: 20%;" flex>
+	<h2>Comprar ingresso(s)</h2>
+
+	<h3>Filme: {{filmeSelecionado.nome}}</h3>
+
+    <h3>Data: </h3>
+	<md-datepicker ng-model="dataSelecionada" md-placeholder="Enter date" style="margin-left: -15px;margin-right:20px"></md-datepicker>	
+
+	<h3>Horários: </h3>
+	<md-select class="md-errors-spacer" style="width:20%" ng-model="horarioSelecionado" placeholder="Horários">
+		<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario">
+			{{sessao.horario}}
+		</md-option>
+	</md-select>
+
+	<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
+	</br>
+    <button ng-click="viewScope()">View scope</button>
+	<button ui-sref="pagamento">Realizar compra</button>
+</div>

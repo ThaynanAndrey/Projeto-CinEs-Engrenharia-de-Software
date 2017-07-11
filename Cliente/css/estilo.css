@@ -23,3 +23,8 @@ md-dialog {
   max-width: 90%;
   max-height: 90%;
 }
+
+.center {
+  text-align: center;
+}
+
