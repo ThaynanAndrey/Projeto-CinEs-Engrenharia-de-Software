@@ -9,18 +9,23 @@ let filmeSchema = new Schema({
 		type:String,
 		required:true
 	},
-	secoes: {
-		type:[{ 
-				type:  mongoose.Schema.ObjectId,
-				ref: 'Secao'
-			}]
-	},
+	sessoes: [{
+			horario:{
+				type:String,
+				required:true
+				},
+
+			sala:{
+				type: mongoose.Schema.ObjectId,
+				ref: 'Sala'
+			}
+		}],
 	genero: {
 		type:String,
 		required:true
 	},
 	classificacao: {
-		type:Number,
+		type:String,
 		required:true
 	},
 	sinopse: {
@@ -28,7 +33,7 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	tempoDeDuracao: {
-		type:Number,
+		type:String,
 		required:true
 	},
 	imagem:{

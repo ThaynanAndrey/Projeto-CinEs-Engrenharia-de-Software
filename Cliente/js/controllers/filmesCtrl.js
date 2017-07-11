@@ -1,12 +1,13 @@
 angular.module("cines")
 
-.controller("filmesCtrl", ['$scope','$rootScope', function($scope, $rootScope) {
+.controller("filmesCtrl", ['$scope','$rootScope', 'RestService', function($scope, $rootScope,RestService) {
 
 	var filme = {
 		nome: "A volta dos que não foram (DUBLADO)",
 		imagem: "../../images/3.jpg.jpg",
 		genero: "Ação, Comédia e Aventura",
 		classificacao: "14 anos",
+		tempoDeDuracao: "2 horas e 14 minutos",
 		sinopse: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.",
 		sessoes: [{
 						sala: 4,
@@ -24,6 +25,7 @@ angular.module("cines")
 		imagem: "../../images/2.jpg.jpg",
 		genero: "Ação e Aventura",
 		classificacao: "18 anos",
+		tempoDeDuracao: "2 horas e 14 minutos",
 		sinopse: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.",
 		sessoes: [{
 						sala: 1,
@@ -36,9 +38,18 @@ angular.module("cines")
 		]
 	};
 
-	$scope.filmes = [filme, filme2];
+	//$scope.filmes = [filme, filme2];
 
 	$scope.selecionarFilme = function(filme){
 		$rootScope.filmeSelecionado = filme;
 	};
+
+	atualizarListaFilmes();
+
+	function atualizarListaFilmes(){
+		RestService.find('http://localhost:8080/filme', function(response) {
+			console.log(response.data);
+			$scope.filmes = response.data;
+		});
+	}
 }]);
