@@ -7,7 +7,7 @@ let Schema = mongoose.Schema;
 let ingressoSchema = new Schema({
 	qrCode: {
 		type:String,
-		required:true
+		required: true
 	},
 	isMeiaEntrada: {
 		type:Boolean

@@ -7,19 +7,12 @@ let Schema = mongoose.Schema;
 let salaSchema = new Schema({
 	numeracao: {
 		type:Number,
-		required:true
+		required:[true, 'Você deve preencher a numeração da sala'],
+		unique : true
 	},
-	cadeiras: {
-		type:[{
-				type:mongoose.Schema.ObjectId,
-				ref: 'Cadeira' 
-			}]
-	},
-	sessao: {
-		type: { 
-			type:  mongoose.Schema.ObjectId,
-			ref: 'Sessao'
-		}
+	qtdCadeiras: {
+		type: Number,
+		required: [true, 'Você deve informar a quantidade de cadeiras disponíveis']
 	}
 });
 

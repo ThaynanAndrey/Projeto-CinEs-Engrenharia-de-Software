@@ -9,37 +9,41 @@ let filmeSchema = new Schema({
 		type:String,
 		required:true
 	},
+	sala: {
+		type:  Schema.Types.ObjectId,
+		ref: 'Sala'
+	},
 	sessoes: [{
-			horario:{
-				type:String,
-				required:true
-				},
-
-			sala:{
-				type: mongoose.Schema.ObjectId,
-				ref: 'Sala'
-			}
-		}],
+		_id: false,
+		horario: {
+			type: Date
+		},
+		cadeiras: {},
+		cadeirasOcupadas: {
+			type: Number, 
+			default: 0
+		}
+	}],
 	genero: {
 		type:String,
-		required:true
+		//required:true
 	},
 	classificacao: {
 		type:String,
-		required:true
+		//required:true
 	},
 	sinopse: {
 		type:String,
-		required:true
+		//required:true
 	},
 	tempoDeDuracao: {
 		type:String,
-		required:true
+		//required:true
 	},
 	imagem:{
 		type: String
 	}
-});
+}, { strict: false });
 
 let filme = mongoose.model('Filme', filmeSchema);
 
