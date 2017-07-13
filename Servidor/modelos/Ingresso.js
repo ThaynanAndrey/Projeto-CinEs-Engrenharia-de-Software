@@ -1,10 +1,13 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+/**
+ * Esquema contendo atributos e relações do Ingresso
+ */
 let ingressoSchema = new Schema({
 	qrCode: {
 		type:String,
-		required:true
+		required: true
 	},
 	isMeiaEntrada: {
 		type:Boolean

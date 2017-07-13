@@ -1,6 +1,9 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+/**
+ * Esquema contendo atributos e relações do Usuário
+ */
 let usuarioSchema = new Schema({
 	nome: {
 		type:String,

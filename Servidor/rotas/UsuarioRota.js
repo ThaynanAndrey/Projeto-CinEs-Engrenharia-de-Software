@@ -2,6 +2,9 @@ let express = require('express');
 let usuarioRouter = express.Router();
 let Usuario = require('../modelos/Usuario.js');
 
+/**
+ * Requisicao get a rota da página do usuario
+ */
 usuarioRouter.get('', function(req, res) {
   Usuario.find({}, function(err, data) {
 		if (err) {
@@ -11,6 +14,10 @@ usuarioRouter.get('', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao get a rota da página do usuario de acordo com o id recebido
+ */
 usuarioRouter.get('/:id', function(req, res) {
   var idUsuario = { _id: req.params.id };
 
@@ -22,6 +29,10 @@ usuarioRouter.get('/:id', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao post a rota da página do usuario
+ */
 usuarioRouter.post('', function(req, res) {
   var novoUsuario = new Usuario(req.body);
 
@@ -36,6 +47,10 @@ usuarioRouter.post('', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao delete a rota da página do usuario de acordo com o id recebido
+ */
 usuarioRouter.delete('/:id', function(req, res) {
   var idUsuario = { _id: req.params.id };
 
@@ -47,6 +62,10 @@ usuarioRouter.delete('/:id', function(req, res) {
 		}
 	});
 });
+
+/**
+ * Requisicao put a rota da página do usuario de acordo com o id recebido
+ */
 usuarioRouter.put('/:id', function(req, res) {
   var idUsuario = { _id: req.params.id };
 	var modelo = req.body;

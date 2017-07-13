@@ -8,8 +8,6 @@ let intermediadorDeRotas = require('./intermediadorDeRotas/intermediadorDeRotas'
 
 app.use(cors());
 
-let routerMiddleware = require('./middleware/routerMiddleware');
-
 mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
 	if(err) {
 		console.log("erro: " + err);
