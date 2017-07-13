@@ -16,6 +16,10 @@
 	</div>
 	<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
 	</br>
-    <button ng-click="viewScope()">View scope</button>
+    <button ng-click="mudarCor()">Mudar de cor</button>
 	<button ui-sref="pagamento">Realizar compra</button>
+	</br>
+	<div ng-repeat="cadeira in cadeiras">
+		<img ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
+	</div>
 </div>
