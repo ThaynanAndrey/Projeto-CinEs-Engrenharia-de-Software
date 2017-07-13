@@ -18,11 +18,11 @@ let filmeSchema = new Schema({
 		horario: {
 			type: Date
 		},
-		cadeiras: {},
 		cadeirasOcupadas: {
 			type: Number, 
-			default: 0
-		}
+			default: '0'
+		},
+		cadeiras: {}
 	}],
 	genero: {
 		type:String,
