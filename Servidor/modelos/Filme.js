@@ -20,25 +20,25 @@ let filmeSchema = new Schema({
 		},
 		cadeiras: {},
 		cadeirasOcupadas: {
-			type: Number, 
+			type: Number,
 			default: 0
 		}
 	}],
 	genero: {
 		type:String,
-		//required:true
+		required:true
 	},
 	classificacao: {
 		type:String,
-		//required:true
+		required:true
 	},
 	sinopse: {
 		type:String,
-		//required:true
+		required:true
 	},
 	tempoDeDuracao: {
 		type:String,
-		//required:true
+		required:true
 	},
 	imagem:{
 		type: String

@@ -7,17 +7,17 @@
 	            <span class="md-title">{{filme.nome}}</span>
 	          </md-card-header-text>
 	        </md-card-header>
-	        
+
 	       <img ng-src="{{filme.imagem}}" class="md-card-image" alt="Washed Out">
-	        
+
 	      </md-card>
-		
+
 		  <md-card style="width: 1000px;">
 
 		  	<md-card-title>
 	          <md-card-title-text>
 	            <span class="md-subhead">Gênero: {{filme.genero}}</span>
-	            <span class="md-subhead">Classificação: Proibido para menores de {{filme.classificacao}}</span>
+	            <span class="md-subhead">Classificação: {{filme.classificacao}}</span>
 	            <span class="md-subhead">Tempo de duração: {{filme.tempoDeDuracao}}</span>
 	          </md-card-title-text>
 	        </md-card-title>
@@ -38,7 +38,7 @@
 			  </thead>
 			  <tbody ng-repeat="sessao in filme.sessoes">
 			    <tr class="center">
-			      <td>{{sessao.sala}}</td>
+			      <td>{{filme.sala.numeracao}}</td>
 			      <td>{{sessao.horario}}</td>
 			    </tr>
 			  </tbody>

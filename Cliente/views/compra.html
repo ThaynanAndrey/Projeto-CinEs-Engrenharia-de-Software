@@ -14,8 +14,10 @@
 			</md-option>
 		</md-select>
 	</div>
-	<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
-	</br>
-  <md-button class="md-raised md-primary" ng-click="viewScope()">View scope</md-button>
-	<md-button class="md-raised md-primary" ui-sref="pagamento">Realizar compra</md-button>
+	<div ng-show="horarioSelecionado">
+		<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
+		</br>
+		<md-button class="md-raised md-primary" ng-click="viewScope()">View scope</md-button>
+		<md-button class="md-raised md-primary" ui-sref="pagamento">Realizar compra</md-button>
+	</div>
 </div>
