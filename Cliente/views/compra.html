@@ -10,14 +10,18 @@
 		<h3>Horários: </h3>
 		<md-select class="md-errors-spacer" style="margin-left:10px" ng-model="horarioSelecionado" placeholder="Selecione">
 			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario">
-				{{sessao.horario}}
+				{{formatarData(sessao.horario)}}
 			</md-option>
 		</md-select>
 	</div>
 	<div ng-show="horarioSelecionado">
 		<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
 		</br>
-		<md-button class="md-raised md-primary" ng-click="viewScope()">View scope</md-button>
+		<div id="wid">
+			<img ng-repeat="cadeira in cadeiras" title="Numeração: {{cadeira.numeracao}}" ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
+		</div>
+		<img style="margin-top:10px;margin-bottom:20px" src="images/tela.jpg">
+		</br>
 		<md-button class="md-raised md-primary" ui-sref="pagamento">Realizar compra</md-button>
 	</div>
 </div>

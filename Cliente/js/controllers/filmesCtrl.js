@@ -32,4 +32,8 @@ angular.module("cines")
 			$scope.filmes = response.data;
 		});
 	}
+
+	$scope.formatarData = function(date){
+		return date.substring(11, 16);
+	}
 }]);
