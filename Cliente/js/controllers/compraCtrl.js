@@ -8,28 +8,13 @@ angular.module("cines")
 	$scope.cadeiraSelecionadaPath = "images/cadeiraSelecionada.jpg";
 	$scope.cadeiraDisponivelPath = "images/cadeiraDisponivel.jpg";
 
-	$scope.cadeiras = [];
-	
-	function addCadeiras(){
-		for(i = 0; i<84;i++){
-			$scope.cadeiras.push({
-				numeracao: i,
-				disponivel:true,
-				selecionada:false
-			});
-		}
-		for(i = 0;i<84;i+=7){
-			$scope.cadeiras[i].disponivel = false;
-		}
-	}
-
 	$scope.viewScope = function(){
 		console.log($rootScope);
 	}
 
-	$scope.selecionarCadeira = function(cadeira){
+	$scope.selecionarCadeira = function(cadeira, cadeiras){
 		if(cadeira.disponivel)
-			$scope.alterarEstadoDeCadeira(cadeira);
+			alterarEstadoDeCadeira(cadeira, cadeiras);
 	}
 
 	$scope.formatarData = function(date){
@@ -46,11 +31,14 @@ angular.module("cines")
 			return $scope.cadeiraIndisponivelPath;
 	};
 
-	$scope.alterarEstadoDeCadeira = function(cadeira){
-		for (i = 0; i<$scope.cadeiras.length; i++){
-			if($scope.cadeiras[i].numeracao==cadeira.numeracao)
-				$scope.cadeiras[i].selecionada = !cadeira.selecionada;
+	function alterarEstadoDeCadeira(cadeira, cadeiras){
+		for (i = 0; i < cadeiras.length; i++){
+			if(cadeiras[i].numeracao == cadeira.numeracao)
+				cadeiras[i].selecionada = !cadeira.selecionada;
 		}
+	};
+
+	$scope.selecionarSessao = function (sessao) {
+		$rootScope.sessaoSelecionada = sessao;
 	}
-	addCadeiras();
 }]);

@@ -6,10 +6,11 @@
 
 	<div flex-xs flex-gt-xs="60" layout="row" >
 		<h3>Data: </h3>
-		<md-datepicker ng-model="dataSelecionada" md-placeholder="Enter date" style="margin-right:20px; margin-top:15px;"></md-datepicker>
+		<md-datepicker ng-model="dataSelecionada" md-min-date="dataSelecionada" md-max-date="dataSelecionada"
+			md-placeholder="Enter date" style="margin-right:20px; margin-top:15px;"></md-datepicker>
 		<h3>Horários: </h3>
 		<md-select class="md-errors-spacer" style="margin-left:10px" ng-model="horarioSelecionado" placeholder="Selecione">
-			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario">
+			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario" ng-click="selecionarSessao(sessao)">
 				{{formatarData(sessao.horario)}}
 			</md-option>
 		</md-select>
@@ -18,10 +19,13 @@
 		<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
 		</br>
 		<div id="wid">
-			<img ng-repeat="cadeira in cadeiras" title="Numeração: {{cadeira.numeracao}}" ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
+			<img ng-repeat="cadeira in sessaoSelecionada.cadeiras" title="Numeração: {{cadeira.numeracao}}"
+			 ng-click="selecionarCadeira(cadeira, sessaoSelecionada.cadeiras)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
+			<!--img ng-repeat="cadeira in cadeiras" title="Numeração: {{cadeira.numeracao}}" ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}"-->
 		</div>
 		<img style="margin-top:10px;margin-bottom:20px" src="images/tela.jpg">
 		</br>
+		<!--h3>{{qtdCadeirasSelecionadas(filmeSelecionado)}} cadeira(s) selecionada(s).</h3-->
 		<md-button class="md-raised md-primary" ui-sref="pagamento">Realizar compra</md-button>
 	</div>
 </div>
