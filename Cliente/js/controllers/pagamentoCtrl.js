@@ -23,26 +23,16 @@ angular.module("cines")
  	};
 
 	function atualizarCadeiras(){
-		RestService.find('http://localhost:8080/api/filme', function(response) {
-			var filmes = response.data;
-			var filmeIndex = 0;
-			for(i=0;i<filmes.length;i++){
-				if($rootScope.filmeSelecionado._id==filmes[i]._id){
-					filmeIndex = i;
-					for(j=0;j<filmes[i].sessoes.length;j++){
-						if(filmes[i].sessoes[j].horario==$rootScope.cadeirasSelecionadas.horario){
-							for(k=0;k<filmes[i].sessoes[j].cadeiras.length;k++){
-								if($rootScope.cadeirasSelecionadas.cadeiras.indexOf(filmes[i].sessoes[j].cadeiras[k].numeracao) > -1 ){
-									filmes[i].sessoes[j].cadeiras[k].disponivel = false;
-								}
-							}
-						}
+		for(j=0;j<$rootScope.filmeSelecionado.sessoes.length;j++){
+			if($rootScope.filmeSelecionado.sessoes[j].horario==$rootScope.cadeirasSelecionadas.horario){
+				for(k=0;k<$rootScope.filmeSelecionado.sessoes[j].cadeiras.length;k++){
+					if($rootScope.cadeirasSelecionadas.cadeiras.indexOf($rootScope.filmeSelecionado.sessoes[j].cadeiras[k].numeracao) > -1 ){
+						$rootScope.filmeSelecionado.sessoes[j].cadeiras[k].disponivel = false;
 					}
 				}
 			}
-			RestService.edit("http://localhost:8080/api/filme/"+filmes[filmeIndex]._id,filmes[filmeIndex]);
-		});
-		
+		}
+		RestService.edit("http://localhost:8080/api/filme/"+$rootScope.filmeSelecionado._id,$rootScope.filmeSelecionado);
 	}
 
 	$scope.comprarIngresso = function(){
