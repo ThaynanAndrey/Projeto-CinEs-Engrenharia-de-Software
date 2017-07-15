@@ -36,6 +36,7 @@ angular.module("cines")
 	};
 
 	restFactory.edit = function(url, data, callback) {
+		console.log(data);
 		HttpRequestService(url, "PUT", data, callback);
 	};
 

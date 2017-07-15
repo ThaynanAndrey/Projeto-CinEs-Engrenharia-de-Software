@@ -8,6 +8,10 @@ h2 {
 	font-family: Arial;
 }
 
+p {
+  text-align: justify;
+}
+
 md-card {
   margin: auto;
   left: 0;
@@ -28,3 +32,6 @@ md-dialog {
   text-align: center;
 }
 
+#wid {
+  column-width: 50px;
+}

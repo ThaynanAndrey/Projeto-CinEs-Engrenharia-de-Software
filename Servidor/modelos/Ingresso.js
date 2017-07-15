@@ -12,14 +12,8 @@ let ingressoSchema = new Schema({
 	isMeiaEntrada: {
 		type:Boolean
 	},
-	cadeira: {
-		type: { 
-			type:  mongoose.Schema.ObjectId,
-			ref: 'Cadeira'
-		}
-	},
 	usuario: {
-		type: { 
+		type: {
 			type:  mongoose.Schema.ObjectId,
 			ref: 'Usuario'
 		}

@@ -18,27 +18,32 @@ let filmeSchema = new Schema({
 		horario: {
 			type: Date
 		},
+
+		cadeiras: [{
+			numeracao: Number,
+			disponivel: Boolean,
+			selecionada: Boolean
+		}],
 		cadeirasOcupadas: {
-			type: Number, 
-			default: '0'
-		},
-		cadeiras: {}
+			type: Number,
+			default: 0
+		}
 	}],
 	genero: {
 		type:String,
-		//required:true
+		required:true
 	},
 	classificacao: {
 		type:String,
-		//required:true
+		required:true
 	},
 	sinopse: {
 		type:String,
-		//required:true
+		required:true
 	},
 	tempoDeDuracao: {
 		type:String,
-		//required:true
+		required:true
 	},
 	imagem:{
 		type: String
