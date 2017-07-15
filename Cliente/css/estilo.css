@@ -35,3 +35,8 @@ md-dialog {
 #wid {
   column-width: 50px;
 }
+
+#centralizar{
+  width: 50%;
+  margin: 0 auto;
+}

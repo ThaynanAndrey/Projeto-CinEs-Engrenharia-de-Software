@@ -51,10 +51,10 @@ angular.module("cines")
 		let aMumia = {
 	        nome: "A Múmia (LEGENDADO)",
 	        imagem: "../../images/aMumia.jpg",
-	        sala: null,
+	        sala: 4,
 	        genero: "Aventura, Fantasia e Terror",
 	        classificacao: "14 anos",
-	        sinopse: "Na Mesopotâmia, séculos atrás, Ahmanet (Sofia Boutella) tem seus planos interrompidos justamente quando está prestes a invocar Set, o deus da morte, de forma que juntos possam governar o mundo.  Mumificada, ela é aprisionada dentro de uma tumba. Nos dias atuais, o local é descoberto por acidente por Nick Morton (Tom Cruise) e Chris Vail …",
+	        sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente tirado está mumificada. Apesar de estar sepultada em sua cripta, ela desperta nos dias atuais. Com uma maldade acumulada ao longo dos anos, ela espelha terror desde as areais do Oriente Médio até os becos de Londres.",
 	        tempoDeDuracao: "1 horas e 51 minutos",
 	        __v: 0,
 	        sessoes: [
@@ -71,13 +71,36 @@ angular.module("cines")
 	        ]
     	}
 
+    	let homemAranha = {
+	        nome: "Homem-Aranha: De volta ao lar (LEGENDADO)",
+	        imagem: "../../images/homemAranha.jpg",
+	        sala: 5,
+	        genero: "Ação, Aventura",
+	        classificacao: "12 anos",
+	        sinopse: "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
+	        tempoDeDuracao: "2 horas e 13 minutos",
+	        __v: 0,
+	        sessoes: [
+	            {
+	                horario: "2017-07-17T14:30:00.419Z",
+	                cadeiras:[],
+	                cadeirasOcupadas: 0
+	            },
+	            {
+	                horario: "2017-07-17T19:40:00.419Z",
+	                cadeiras:[],
+	                cadeirasOcupadas: 0
+	            }
+	        ]
+    	}
+
     	let mulherMaravilha = {
 	        nome: "Mulher-Maravilha (DUBLADO)",
 	        imagem: "../../images/mulherMaravilha.jpg",
-	        sala: null,
+	        sala: 1,
 	        genero: "Ação, Aventura, Fantasia",
 	        classificacao: "18 anos",
-	        sinopse: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince (Gal Gadot) nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor (Chris Pine) se acidenta e cai numa praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa …",
+	        sinopse: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor se acidenta e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com todas as lutas, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
 	        tempoDeDuracao: "2 horas e 21 minutos",
 	        __v: 0,
 	        sessoes: [
@@ -94,13 +117,13 @@ angular.module("cines")
 	        ]
     	}
 
-    	let filmesAdc = [aMumia,mulherMaravilha];
-    	for(k=0;k<2;k++){
+    	let filmesAdc = [aMumia,mulherMaravilha, homemAranha];
+    	for(k=0;k<filmesAdc.length;k++){
     		for(i=0;i<filmesAdc[k].sessoes.length;i++){
 				for(j=1;j<85;j++){
 					filmesAdc[k].sessoes[i].cadeiras.push({numeracao:j,
-																	disponivel:true,
-																	selecionada:false});
+														   disponivel:true,
+														   selecionada:false});
 				}
 			}
 			RestService.add("http://localhost:8080/api/filme/",filmesAdc[k]);

@@ -10,8 +10,8 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	sala: {
-		type:  Schema.Types.ObjectId,
-		ref: 'Sala'
+		type:  Number,
+		required: true
 	},
 	sessoes: [{
 		_id: false,

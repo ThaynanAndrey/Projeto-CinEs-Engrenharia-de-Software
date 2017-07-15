@@ -3,7 +3,7 @@ angular.module("cines")
 .controller("compraCtrl", ['$scope','$rootScope','RestService', function($scope,$rootScope, RestService) {
 
 	$scope.dataSelecionada = new Date();
-	$scope.horarioSelecionado;
+	$rootScope.cadeirasSelecionadas = [];
 	$scope.cadeiraIndisponivelPath = "images/cadeiraIndisponivel.jpg";
 	$scope.cadeiraSelecionadaPath = "images/cadeiraSelecionada.jpg";
 	$scope.cadeiraDisponivelPath = "images/cadeiraDisponivel.jpg";
@@ -34,28 +34,18 @@ angular.module("cines")
 	function alterarEstadoDeCadeira(cadeira, cadeiras){
 		for (i = 0; i < cadeiras.length; i++){
 			if(cadeiras[i].numeracao == cadeira.numeracao)
-				cadeiras[i].selecionada = !cadeira.selecionada;
+				if(cadeira.selecionada){
+					cadeiras[i].selecionada = false;
+					$rootScope.cadeirasSelecionadas.splice($rootScope.cadeirasSelecionadas.indexOf(cadeira.numeracao), 1);
+				}
+				else{
+					cadeiras[i].selecionada = true;
+					$rootScope.cadeirasSelecionadas.push(cadeira.numeracao);
+				}
+
 		}
 	};
-
 	$scope.selecionarSessao = function (sessao) {
 		$rootScope.sessaoSelecionada = sessao;
 	}
-
-	$scope.salvarCadeirasSelecionadas = function(){
-		var filme = $rootScope.filmeSelecionado;
-		var cadeirasSelecionadas = [];
-		for(i=0;i<filme.sessoes.length;i++){
-			if(filme.sessoes[i].horario==$scope.horarioSelecionado){
-				for (j=0;j<filme.sessoes[i].cadeiras.length;j++){
-					if(filme.sessoes[i].cadeiras[j].selecionada){
-						cadeirasSelecionadas.push(filme.sessoes[i].cadeiras[j].numeracao);
-					}
-				}
-			}
-		}
-		$rootScope.cadeirasSelecionadas = {horario:$scope.horarioSelecionado,
-										   cadeiras: cadeirasSelecionadas};
-	}
-
 }]);

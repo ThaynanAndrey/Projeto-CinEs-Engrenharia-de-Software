@@ -24,9 +24,9 @@ angular.module("cines")
 
 	function atualizarCadeiras(){
 		for(j=0;j<$rootScope.filmeSelecionado.sessoes.length;j++){
-			if($rootScope.filmeSelecionado.sessoes[j].horario==$rootScope.cadeirasSelecionadas.horario){
+			if($rootScope.filmeSelecionado.sessoes[j].horario==$rootScope.sessaoSelecionada.horario){
 				for(k=0;k<$rootScope.filmeSelecionado.sessoes[j].cadeiras.length;k++){
-					if($rootScope.cadeirasSelecionadas.cadeiras.indexOf($rootScope.filmeSelecionado.sessoes[j].cadeiras[k].numeracao) > -1 ){
+					if($rootScope.cadeirasSelecionadas.indexOf($rootScope.filmeSelecionado.sessoes[j].cadeiras[k].numeracao) > -1 ){
 						$rootScope.filmeSelecionado.sessoes[j].cadeiras[k].disponivel = false;
 					}
 				}

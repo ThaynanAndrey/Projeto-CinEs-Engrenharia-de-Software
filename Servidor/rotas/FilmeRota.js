@@ -7,7 +7,7 @@ let errosUtil = require('../util/errosUtil');
  * Requisicao get a rota da página que exibe os filmes
  */
 filmeRouter.get('/', function(req, res) {
-	let query = Filme.find({}).populate('sala');
+	let query = Filme.find({});
   	query.exec(function(err, data) {
 		if (err) {
 			res.sendStatus(500);
@@ -21,7 +21,7 @@ filmeRouter.get('/', function(req, res) {
  * Requisicao get a rota da página que exibe os filmes de acordo com o id recebido
  */
 filmeRouter.get('/:id', function(req, res) {
-	let query = Filme.findById(req.params.id).populate('sala');
+	let query = Filme.findById(req.params.id);
 	query.exec(function(err, data) {
 		if (err) {
 			console.log(err);
@@ -40,10 +40,10 @@ filmeRouter.post('/', function(req, res) {
 
   	let validacao = novoFilme.validateSync();
 
-	if (validacao){
+	/**if (validacao){
 		let erro = Object.values(validacao.errors)[0];
         return errosUtil.erroRest(400, erro.message, erro, res);
-	}
+	}**/
 
 	novoFilme.save(function(err, data) {
 		if (err) {
