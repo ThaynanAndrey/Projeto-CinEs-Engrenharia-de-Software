@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("compraCtrl", ['$scope','$rootScope', function($scope,$rootScope) {
+.controller("compraCtrl", ['$scope','$rootScope','RestService', function($scope,$rootScope, RestService) {
 
 	$scope.dataSelecionada = new Date();
 	$scope.horarioSelecionado;
@@ -41,4 +41,21 @@ angular.module("cines")
 	$scope.selecionarSessao = function (sessao) {
 		$rootScope.sessaoSelecionada = sessao;
 	}
+
+	$scope.salvarCadeirasSelecionadas = function(){
+		var filme = $rootScope.filmeSelecionado;
+		var cadeirasSelecionadas = [];
+		for(i=0;i<filme.sessoes.length;i++){
+			if(filme.sessoes[i].horario==$scope.horarioSelecionado){
+				for (j=0;j<filme.sessoes[i].cadeiras.length;j++){
+					if(filme.sessoes[i].cadeiras[j].selecionada){
+						cadeirasSelecionadas.push(filme.sessoes[i].cadeiras[j].numeracao);
+					}
+				}
+			}
+		}
+		$rootScope.cadeirasSelecionadas = {horario:$scope.horarioSelecionado,
+										   cadeiras: cadeirasSelecionadas};
+	}
+
 }]);

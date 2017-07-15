@@ -1,9 +1,6 @@
 <div style="padding-left: 20%; padding-right: 20%;" flex>
 	<h2>Comprar ingresso(s)</h2>
-
 	<h3>Filme: {{filmeSelecionado.nome}}</h3>
-
-
 	<div flex-xs flex-gt-xs="60" layout="row" >
 		<h3>Data: </h3>
 		<md-datepicker ng-model="dataSelecionada" md-min-date="dataSelecionada" md-max-date="dataSelecionada"
@@ -25,7 +22,6 @@
 		</div>
 		<img style="margin-top:10px;margin-bottom:20px" src="images/tela.jpg">
 		</br>
-		<!--h3>{{qtdCadeirasSelecionadas(filmeSelecionado)}} cadeira(s) selecionada(s).</h3-->
-		<md-button class="md-raised md-primary" ui-sref="pagamento">Realizar compra</md-button>
+		<md-button class="md-raised md-primary" ui-sref="pagamento" ng-click="salvarCadeirasSelecionadas()">Realizar compra</md-button>
 	</div>
 </div>

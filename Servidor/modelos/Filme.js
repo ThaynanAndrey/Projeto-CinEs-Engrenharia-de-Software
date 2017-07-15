@@ -20,7 +20,8 @@ let filmeSchema = new Schema({
 		},
 		cadeiras: [{
 			numeracao: Number,
-			disponivel: Boolean
+			disponivel: Boolean,
+			selecionada: Boolean
 		}],
 		cadeirasOcupadas: {
 			type: Number,
