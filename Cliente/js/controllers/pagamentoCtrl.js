@@ -36,12 +36,13 @@ angular.module("cines")
 	}
 
 	$scope.comprarIngresso = function(){
-		if(($scope.user.entradaMeia+$scope.user.entradaInteira) === 0){
-			mostrarToast("Nenhum ingresso selecionado.");
+		let qtdCadeiras = $rootScope.cadeirasSelecionadas.length;
+		if(($scope.user.entradaMeia+$scope.user.entradaInteira) != qtdCadeiras){
+			mostrarToast("Selecione um total de " + qtdCadeiras + " ingressos.");
 		}else{
 			atualizarCadeiras();
 			mostrarToast("Compra realizada com sucesso!");
-			goTo('home');
+			goTo('compraRealizada');
 		}
 	};
 
