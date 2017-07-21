@@ -1,9 +1,13 @@
 <div style="padding-left: 20%; padding-right: 20%;" flex>
   <div>
-    <img ng-src="{{qrCode}}" alt="Washed Out">
-    <br>
+    <span ng-repeat="cadeira in cadeirasSelecionadas" >
+      <span><b>N° {{cadeira}}:</b></span>
+      <img ng-src="{{qrCode}}" alt="Washed Out">
+    </span >
+    
+    </br>
     <h4>Sua compra foi aceita.</h4>
-    <h4>Apresente o QR code acima no cinema para adquirir seu ingresso.</h4>
+    <h4>Apresente o(s) QR code(s) acima no cinema para adquirir seu(s) ingresso(s).</h4>
   </div>
   <div>
     <md-button class="md-raised md-primary" ui-sref="filmes">Realizar outra compra</md-button>
