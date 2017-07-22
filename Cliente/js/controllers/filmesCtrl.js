@@ -15,7 +15,6 @@ angular.module("cines")
 
 	function atualizarListaFilmes(){
 		RestService.find('http://localhost:8080/api/filme', function(response) {
-			console.log(response.data);
 			$scope.filmes = response.data;
 		});
 	}
@@ -43,15 +42,16 @@ angular.module("cines")
 	        classificacao: "14 anos",
 	        sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente tirado está mumificada. Apesar de estar sepultada em sua cripta, ela desperta nos dias atuais. Com uma maldade acumulada ao longo dos anos, ela espelha terror desde as areais do Oriente Médio até os becos de Londres.",
 	        tempoDeDuracao: "1 horas e 51 minutos",
+	        fimDeCartaz: "2017-08-21T00:00:00.000Z",
 	        __v: 0,
 	        sessoes: [
 	            {
-	                horario: "2017-07-17T16:20:00.419Z",
+	                horario: "2017-07-17T16:20:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
-	                horario: "2017-07-17T20:50:00.419Z",
+	                horario: "2017-07-17T20:50:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            }
@@ -66,15 +66,16 @@ angular.module("cines")
 	        classificacao: "12 anos",
 	        sinopse: "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
 	        tempoDeDuracao: "2 horas e 13 minutos",
+	        fimDeCartaz: "2017-08-27T00:00:00.000Z",
 	        __v: 0,
 	        sessoes: [
 	            {
-	                horario: "2017-07-17T14:30:00.419Z",
+	                horario: "2017-07-17T14:30:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
-	                horario: "2017-07-17T19:40:00.419Z",
+	                horario: "2017-07-17T19:40:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            }
@@ -89,15 +90,16 @@ angular.module("cines")
 	        classificacao: "18 anos",
 	        sinopse: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor se acidenta e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com todas as lutas, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
 	        tempoDeDuracao: "2 horas e 21 minutos",
+	        fimDeCartaz: "2017-08-30T00:00:00.000Z",
 	        __v: 0,
 	        sessoes: [
 	            {
-	                horario: "2017-07-17T18:00:00.419Z",
+	                horario: "2017-07-17T18:00:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
-	                horario: "2017-07-17T21:30:00.419Z",
+	                horario: "2017-07-17T21:30:00.000Z",
 	                cadeiras: [],
 	                cadeirasOcupadas: 0
 	            }

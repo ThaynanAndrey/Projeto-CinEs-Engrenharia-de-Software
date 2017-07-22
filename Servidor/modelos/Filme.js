@@ -9,11 +9,8 @@ let filmeSchema = new Schema({
 		type:String,
 		required:true
 	},
-	sala: {
-		type:  Number,
-		required: true
-	},
 	sessoes: [{
+		sala: Number,
 		_id: false,
 		horario: {
 			type: Date
@@ -29,6 +26,10 @@ let filmeSchema = new Schema({
 			default: 0
 		}
 	}],
+	fimDeCartaz: {
+		type: Date,
+		required:true
+	},
 	genero: {
 		type:String,
 		required:true

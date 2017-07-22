@@ -2,7 +2,9 @@ angular.module("cines")
 
 .controller("compraCtrl", ['$scope','$rootScope','RestService', function($scope,$rootScope, RestService) {
 
+	$scope.dataAtual = new Date();
 	$scope.dataSelecionada = new Date();
+	$scope.fimDeCartaz = getFimDeCartaz();
 	$rootScope.cadeirasSelecionadas = [];
 	$scope.cadeiraIndisponivelPath = "images/cadeiraIndisponivel.jpg";
 	$scope.cadeiraSelecionadaPath = "images/cadeiraSelecionada.jpg";
@@ -15,6 +17,14 @@ angular.module("cines")
 	$scope.selecionarCadeira = function(cadeira, cadeiras){
 		if(cadeira.disponivel)
 			alterarEstadoDeCadeira(cadeira, cadeiras);
+	}
+
+	function getFimDeCartaz(){
+		let data = $rootScope.filmeSelecionado.fimDeCartaz;
+		let ano = parseInt(data.substring(0,4));
+		let mes = parseInt(data.substring(5,7));
+		let dia = parseInt(data.substring(8,10));
+		return new Date(ano,mes,dia);
 	}
 
 	$scope.formatarData = function(date){

@@ -26,8 +26,8 @@ filmeRouter.get('/:id', function(req, res) {
 		if (err) {
 			console.log(err);
 			return res.status(500).json({erro: "Algo deu errado"});
-		} 
-		res.json(data);		
+		}
+		res.json(data);
 	});
 });
 
@@ -35,7 +35,6 @@ filmeRouter.get('/:id', function(req, res) {
  * Requisicao post a rota da página que exibe os filmes
  */
 filmeRouter.post('/', function(req, res) {
-
   	let novoFilme = new Filme(req.body);
 
   	let validacao = novoFilme.validateSync();
@@ -80,7 +79,7 @@ filmeRouter.put('/:id', function(req, res) {
 		if (err) {
 			return res.status(400).json(err);
 		}
-		res.json(data);
+		res.json(modelo);
 	});
 });
 

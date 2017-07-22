@@ -12,6 +12,12 @@ let ingressoSchema = new Schema({
 	isMeiaEntrada: {
 		type:Boolean
 	},
+	filme: {
+		type: {
+			type:  mongoose.Schema.ObjectId,
+			ref: 'Filme'
+		}
+	},
 	usuario: {
 		type: {
 			type:  mongoose.Schema.ObjectId,
