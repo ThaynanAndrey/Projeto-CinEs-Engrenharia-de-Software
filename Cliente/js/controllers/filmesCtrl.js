@@ -2,40 +2,9 @@ angular.module("cines")
 
 .controller("filmesCtrl", ['$scope','$rootScope', 'RestService', function($scope, $rootScope,RestService) {
 
-	var filme = {
-		nome: "A volta dos que não foram (DUBLADO)",
-		imagem: "../../images/3.jpg.jpg",
-		genero: "Ação, Comédia e Aventura",
-		classificacao: "14 anos",
-		tempoDeDuracao: "2 horas e 14 minutos",
-		sinopse: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI.",
-		sessoes: [{
-						sala: 4,
-						horario: "14:30"
-					},
-					{
-						sala: 4,
-						horario: "19:00"
-					}
-		]
-	};
-
 	$scope.selecionarFilme = function(filme){
 		$rootScope.filmeSelecionado = filme;
 	};
-
-	let hoje = new Date(1500676030419);
-	//let novaData = new Date(1500676030420);
-	//Mes = -1 / Hora = -3
-	let novaData = new Date(2017, 06, 21, 10, 20, 0);
-
-	$scope.getTimeHoje = function(){
-		return hoje;
-	}
-
-	$scope.getTimenova = function (){
-		return novaData;
-	}
 
 	atualizarListaFilmes();
 
@@ -69,18 +38,16 @@ angular.module("cines")
 	        classificacao: "14 anos",
 	        sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente tirado está mumificada. Apesar de estar sepultada em sua cripta, ela desperta nos dias atuais. Com uma maldade acumulada ao longo dos anos, ela espelha terror desde as areais do Oriente Médio até os becos de Londres.",
 	        tempoDeDuracao: "1 horas e 51 minutos",
-					fimDeCartaz: new Date(2017, 06, 24, 2, 10, 30),
+	        fimDeCartaz: "2017-08-21T00:00:00.000Z",
 	        __v: 0,
 	        sessoes: [
 	            {
-	                //horario: "2017-07-17T16:20:00.419Z",
-									horario: new Date(2017, 06, 17, 13, 10, 0),
+	                horario: "2017-07-17T16:20:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
-	                //horario: "2017-07-17T20:50:00.419Z",
-									horario: new Date(2017, 06, 17, 17, 20, 0),
+	                horario: "2017-07-17T20:50:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            }
@@ -95,18 +62,16 @@ angular.module("cines")
 	        classificacao: "12 anos",
 	        sinopse: "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
 	        tempoDeDuracao: "2 horas e 13 minutos",
-					fimDeCartaz: new Date(2017, 06, 21, 10, 30, 0),
+	        fimDeCartaz: "2017-08-27T00:00:00.000Z",
 	        __v: 0,
 	        sessoes: [
 	            {
-	                //horario: "2017-07-17T14:30:00.419Z",
-									horario: new Date(2017, 06, 17, 12, 30, 0),
+	                horario: "2017-07-17T14:30:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
-	                //horario: "2017-07-17T19:40:00.419Z",
-									horario: new Date(2017, 06, 17, 18, 40, 0),
+	                horario: "2017-07-17T19:40:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            }
@@ -121,18 +86,16 @@ angular.module("cines")
 	        classificacao: "18 anos",
 	        sinopse: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor se acidenta e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com todas as lutas, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
 	        tempoDeDuracao: "2 horas e 21 minutos",
-					fimDeCartaz: new Date(2017, 06, 21, 10, 30, 0),
+	        fimDeCartaz: "2017-08-30T00:00:00.000Z",
 	        __v: 0,
 	        sessoes: [
 	            {
-	                //horario: "2017-07-17T18:00:00.419Z",
-									horario: new Date(2017, 06, 17, 17, 0, 0),
+	                horario: "2017-07-17T18:00:00.000Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
-	                //horario: "2017-07-17T21:30:00.419Z",
-									horario: new Date(2017, 06, 17, 20, 30, 0),
+	                horario: "2017-07-17T21:30:00.000Z",
 	                cadeiras: [],
 	                cadeirasOcupadas: 0
 	            }
