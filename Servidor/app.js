@@ -41,7 +41,6 @@ app.use(morgan('dev'));
 
 apiRoutes.post('/authenticate', function(req, res) {
 
-  // find the user
   Usuario.findOne({ email: req.body.email }, function(err, user) {
 
     if (err) throw err;
@@ -50,13 +49,13 @@ apiRoutes.post('/authenticate', function(req, res) {
       res.json({ success: false, message: 'Usuario não encontrado' });
     } else if (user) {
 
-      // check if password matches
+      
       if (user.senha != req.body.password) {
         res.json({ success: false, message: 'Senha Invalida' });
       } else {
 
-        // if user is found and password is right
-        // create a token
+        
+        // cria o token
         var token = jwt.sign(user, app.get('superSecret'), {
           expiresIn: 86400 // expires in 24 hours
         });
@@ -71,6 +70,14 @@ apiRoutes.post('/authenticate', function(req, res) {
     }
 
   });
+});
+
+apiRoutes.get('/logout', function(req, res){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+  // destroy the user's session to log them out                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+  // will be re-created next request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+  req.session.destroy(function(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    res.redirect('/');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+  });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 });
 
 // ---------------------------------------------------------
@@ -89,7 +96,7 @@ apiRoutes.use(function(req, res, next) {
       if (err) {
         return res.json({ success: false, message: 'Failed to authenticate token.' });    
       } else {
-        // if everything is good, save to request for use in other routes
+        
         req.decoded = decoded;  
         next();
       }
@@ -97,8 +104,6 @@ apiRoutes.use(function(req, res, next) {
 
   } else {
 
-    // if there is no token
-    // return an error
     return res.status(403).send({ 
       success: false, 
       message: 'No token provided.'
