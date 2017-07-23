@@ -31,7 +31,7 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	genero: {
-		type:String,
+		type:Number,
 		required:true
 	},
 	classificacao: {
