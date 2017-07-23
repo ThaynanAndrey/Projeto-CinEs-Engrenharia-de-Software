@@ -60,7 +60,7 @@ angular.module("cines")
 	}
 
 	$scope.adcFiltro = function(){
-		if($scope.filtros.indexOf($scope.filtro)==-1)
+		if($scope.filtros.indexOf($scope.filtro)==-1 && $scope.filtro)
 			$scope.filtros.push($scope.filtro);
 	};
 

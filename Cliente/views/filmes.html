@@ -8,7 +8,6 @@
 				<md-option ng-repeat="tipo in tiposDeFiltragem" ng-value="tipo">
 					<h4>{{tipo}}</h4>
 				</md-option>
-
 			</md-select>
 			<h2> :</h2>
 			<md-select class="md-errors-spacer" ng-show="tipoDeFiltragem == tiposDeFiltragem.genero" style="margin-left:15px;margin-top:10px" ng-model="filtro" placeholder="Selecione">
@@ -22,7 +21,7 @@
 				</md-option>
 			</md-select>
 			
-			<md-button class="md-raised md-warn" ng-click="adcFiltro()" style="height:30px; margin-top:17px">Adicionar</button>
+			<md-button class="md-raised md-warn" ng-click="adcFiltro()" style="height:30px; margin-top:17px">Adicionar filtro</button>
 		</span>
 
 		<span flex-xs flex-gt-xs="50" layout="row" ng-if="filtros.length!=0" style="margin:0px auto; margin-top:-30px">
