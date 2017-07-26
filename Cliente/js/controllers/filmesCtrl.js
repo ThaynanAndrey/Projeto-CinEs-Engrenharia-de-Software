@@ -55,7 +55,7 @@ angular.module("cines")
 		});
 		if(!temGenero)
 			return true;
-		else 
+		else
 			return generosValidos;
 	}
 

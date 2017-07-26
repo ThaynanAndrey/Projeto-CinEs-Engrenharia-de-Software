@@ -31,11 +31,11 @@ let filmeSchema = new Schema({
 		required:true
 	},
 	genero: {
-		type:Number,
+		type:String,
 		required:true
 	},
 	classificacao: {
-		type:String,
+		type:Number,
 		required:true
 	},
 	sinopse: {

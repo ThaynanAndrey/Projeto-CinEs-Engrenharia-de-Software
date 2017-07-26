@@ -19,11 +19,15 @@ mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+let intermediadorDeRotas = require('./intermediadorDeRotas/intermediadorDeRotas');
+intermediadorDeRotas.set(app);
+
 //intermediadorDeRotas.set(app);
 
 app.listen(8080, function(){
   console.log("Servidor está correndo na porta 8080");
 });
+
 
 
 
@@ -34,12 +38,23 @@ var morgan = require('morgan');
 var Usuario = require('./modelos/Usuario.js');
 var apiRoutes = express.Router();
 var config = require('./config');
+var session = require('express-session');
 
-app.set('superSecret', config.secret); 
+app.set('superSecret', config.secret);
 app.use(morgan('dev'));
 
 
+app.use(session({
+  genid: function(req) {
+    return 1;
+  },
+  secret: 'keyboard cat'
+}));
+
+
+
 apiRoutes.post('/authenticate', function(req, res) {
+
 
   Usuario.findOne({ email: req.body.email }, function(err, user) {
 
@@ -49,12 +64,11 @@ apiRoutes.post('/authenticate', function(req, res) {
       res.json({ success: false, message: 'Usuario não encontrado' });
     } else if (user) {
 
-      
+
       if (user.senha != req.body.password) {
         res.json({ success: false, message: 'Senha Invalida' });
       } else {
 
-        
         // cria o token
         var token = jwt.sign(user, app.get('superSecret'), {
           expiresIn: 86400 // expires in 24 hours
@@ -65,24 +79,29 @@ apiRoutes.post('/authenticate', function(req, res) {
           message: 'Aqui o token!',
           token: token
         });
-      }   
+
+
+      }
 
     }
 
   });
 });
 
-apiRoutes.get('/logout', function(req, res){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-  // destroy the user's session to log them out                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-  // will be re-created next request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-  req.session.destroy(function(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-    res.redirect('/');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-  });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+apiRoutes.get('/logout', function(req, res){
+  // destroy the user's session to log them out
+  // will be re-created next request
+  req.session.destroy(function(){
+    res.json({
+      success: true
+    });
+  });
 });
 
 // ---------------------------------------------------------
 // route middleware to authenticate and check token
 // ---------------------------------------------------------
+/*
 apiRoutes.use(function(req, res, next) {
 
   // check header or url parameters or post parameters for token
@@ -92,44 +111,31 @@ apiRoutes.use(function(req, res, next) {
   if (token) {
 
     // verifies secret and checks exp
-    jwt.verify(token, app.get('superSecret'), function(err, decoded) {      
+    jwt.verify(token, app.get('superSecret'), function(err, decoded) {
       if (err) {
-        return res.json({ success: false, message: 'Failed to authenticate token.' });    
+        return res.json({ success: false, message: 'Failed to authenticate token.' });
       } else {
-        
-        req.decoded = decoded;  
+
+        req.decoded = decoded;
         next();
       }
     });
 
   } else {
 
-    return res.status(403).send({ 
-      success: false, 
+    return res.status(403).send({
+      success: false,
       message: 'No token provided.'
     });
-    
+
   }
-  
+
 });
-
-// ---------------------------------------------------------
-// authenticated routes
-// ---------------------------------------------------------
-
-// exemplo 
-// pra axessar essa rota coloca no header key  x-access-token , e no valor o token gerado na autenticacao
-
-apiRoutes.get('/check', function(req, res) {
- res.json(req.decoded);
-});
-
 
 app.use('/api', apiRoutes);
 
+*/
+app.use('/api', apiRoutes);
 
-
-let intermediadorDeRotas = require('./intermediadorDeRotas/intermediadorDeRotas');
-intermediadorDeRotas.set(app);
 
 module.exports = app;
