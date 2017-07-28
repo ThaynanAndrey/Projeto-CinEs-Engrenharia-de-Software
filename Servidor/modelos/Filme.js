@@ -26,12 +26,16 @@ let filmeSchema = new Schema({
 			default: 0
 		}
 	}],
+	fimDeCartaz: {
+		type: Date,
+		required:true
+	},
 	genero: {
 		type:String,
 		required:true
 	},
 	classificacao: {
-		type:String,
+		type:Number,
 		required:true
 	},
 	sinopse: {
