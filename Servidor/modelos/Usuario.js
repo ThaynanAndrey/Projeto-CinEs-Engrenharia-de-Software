@@ -17,6 +17,10 @@ let usuarioSchema = new Schema({
 		type:String,
 		required:true
 	},
+	cpf:{
+		type:String,
+		required:true
+	},
 	ingressos: {
 		type:[{
 				type:  mongoose.Schema.ObjectId,

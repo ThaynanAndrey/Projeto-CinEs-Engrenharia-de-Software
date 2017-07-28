@@ -20,14 +20,21 @@
 						Menu
 					</md-button>
 		    	</div>
-				<div class="navbar-header" style="float:right">
+				<div class="navbar-header" style="float:right" ng-hide="usuarioLogado()">
+						<md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ui-sref="registro">
+							Registro
+						</md-button>
 				    <md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ui-sref="login">
 				    	Login
 				    </md-button>
 				</div>
+				<div class="navbar-header" style="float:right" ng-show="usuarioLogado()">
+					<md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ui-sref="registro">
+						Logout
+					</md-button>
+				</div>
 		    </div>
 	  	</nav>
-
 	  	<div ng-controller="homeCtrl" layout="column" style=" margin-top:50px" ng-cloak>
 		  <section layout="row" flex>
 		    <md-sidenav class="md-sidenav-left" md-component-id="left"
@@ -39,7 +46,7 @@
 				<md-button type="text" ui-sref="filmes" class="list-group-item list-group-item-info" style="margin-left:10px">
 					Filmes em cartaz
 				</md-button>
-				<md-button type="text" ui-sref="perfil" class="list-group-item list-group-item-info" style="margin-left:10px">
+				<md-button type="text" ui-sref="perfil" class="list-group-item list-group-item-info" style="margin-left:10px" ng-show="usuarioLogado()">
 					Meu Perfil
 				</md-button>
 		      </md-content>
@@ -69,6 +76,7 @@
 		<script type="text/javascript" src="js/controllers/perfilCtrl.js"></script>
 		<script type="text/javascript" src="js/controllers/filmesCtrl.js"></script>
 		<script type="text/javascript" src="js/controllers/compraCtrl.js"></script>
+		<script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
 		<script type="text/javascript" src="js/services/homeService.js"></script>
 
 

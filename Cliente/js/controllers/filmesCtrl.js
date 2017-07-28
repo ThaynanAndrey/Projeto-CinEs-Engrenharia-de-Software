@@ -51,7 +51,6 @@ angular.module("cines")
 		let aMumia = {
 	        nome: "A Múmia (LEGENDADO)",
 	        imagem: "../../images/aMumia.jpg",
-	        sala: 4,
 	        genero: "Aventura, Fantasia e Terror",
 	        classificacao: "14 anos",
 	        sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente tirado está mumificada. Apesar de estar sepultada em sua cripta, ela desperta nos dias atuais. Com uma maldade acumulada ao longo dos anos, ela espelha terror desde as areais do Oriente Médio até os becos de Londres.",
@@ -59,11 +58,13 @@ angular.module("cines")
 	        __v: 0,
 	        sessoes: [
 	            {
+									sala: 4,
 	                horario: "2017-07-17T16:20:00.419Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
+									sala: 4,
 	                horario: "2017-07-17T20:50:00.419Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
@@ -74,7 +75,6 @@ angular.module("cines")
     	let homemAranha = {
 	        nome: "Homem-Aranha: De volta ao lar (LEGENDADO)",
 	        imagem: "../../images/homemAranha.jpg",
-	        sala: 5,
 	        genero: "Ação, Aventura",
 	        classificacao: "12 anos",
 	        sinopse: "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
@@ -82,11 +82,13 @@ angular.module("cines")
 	        __v: 0,
 	        sessoes: [
 	            {
+									sala: 5,
 	                horario: "2017-07-17T14:30:00.419Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
+									sala: 5,
 	                horario: "2017-07-17T19:40:00.419Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
@@ -97,7 +99,6 @@ angular.module("cines")
     	let mulherMaravilha = {
 	        nome: "Mulher-Maravilha (DUBLADO)",
 	        imagem: "../../images/mulherMaravilha.jpg",
-	        sala: 1,
 	        genero: "Ação, Aventura, Fantasia",
 	        classificacao: "18 anos",
 	        sinopse: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor se acidenta e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com todas as lutas, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
@@ -105,11 +106,13 @@ angular.module("cines")
 	        __v: 0,
 	        sessoes: [
 	            {
+									sala: 1,
 	                horario: "2017-07-17T18:00:00.419Z",
 	                cadeiras:[],
 	                cadeirasOcupadas: 0
 	            },
 	            {
+									sala: 1,
 	                horario: "2017-07-17T21:30:00.419Z",
 	                cadeiras: [],
 	                cadeirasOcupadas: 0
