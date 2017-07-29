@@ -75,6 +75,7 @@ apiRoutes.post('/authenticate', function(req, res) {
         });
 
         res.json({
+          usuario: user,
           success: true,
           message: 'Aqui o token!',
           token: token

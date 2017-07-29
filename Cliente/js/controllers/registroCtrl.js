@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("registroCtrl", ['$scope', '$mdDialog', 'RestService', function($scope, $mdDialog, RestService) {
+.controller("registroCtrl", ['$scope', '$mdDialog', '$mdToast', '$state', 'RestService', function($scope, $mdDialog, $mdToast, $state, RestService) {
 
   $scope.registro = {
     nome: "",
@@ -10,13 +10,16 @@ angular.module("cines")
     cpf: ""
   };
 
-  $scope.registrar = function(){
-    nome = $scope.registro.nome;
-    email = $scope.registro.nome;
-    senha = $scope.registro.senha;
-    repetirSenha = $scope.registro.repetirSenha;
-    cpf = $scope.registro.cpf;
-    console.log(nome + cpf);
+  $scope.registrar = function(registro){
+    let novoUsuario = {}
+    novoUsuario.nome = registro.nome,
+    novoUsuario.email = registro.nome,
+    novoUsuario.senha = registro.senha,
+    novoUsuario.cpf = registro.cpf
+
+    RestService.add("http://localhost:8080/api/usuario/",novoUsuario);
+    mostrarToast("Usuário cadastrado com sucesso!");
+    $state.go('home');
   }
 
    $scope.showAlert = function(ev) {
@@ -42,5 +45,13 @@ angular.module("cines")
     $mdDialog.hide(answer);
   };
 
-}]);
+  function mostrarToast(frase){
+		$mdToast.show(
+      		$mdToast.simple()
+        		.textContent(frase)
+        		.position('top right')
+        		.hideDelay(3000)
+    	);
+	};
 
+}]);

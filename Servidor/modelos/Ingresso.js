@@ -9,8 +9,9 @@ let ingressoSchema = new Schema({
 		type:String,
 		required: true
 	},
-	isMeiaEntrada: {
-		type:Boolean
+	numeroDaCadeira: {
+		type:Number,
+		required: true
 	},
 	filme: {
 		type: {

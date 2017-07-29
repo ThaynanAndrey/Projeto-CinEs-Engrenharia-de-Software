@@ -36,21 +36,14 @@ angular.module("cines")
 	}
 
 	function gerarIngressos() {
-		for (var idMeia = 0; idMeia < $scope.user.entradaMeia; idMeia++) {
+		console.log("INGRESSOS!");
+		for (var i = 0; i < $rootScope.cadeirasSelecionadas.length; i++) {
 			let novoIngresso = {
 				qrCode: "../../images/qrcode.40772041.png",
-				isMeiaEntrada: true,
+				numeroDaCadeira: $rootScope.cadeirasSelecionadas[i],
 				filme: $rootScope.filmeSelecionado._id
 			};
-			RestService.add("http://localhost:8080/api/ingresso/",novoIngresso);
-		}
-
-		for (var idInteira = 0; idInteira < $scope.user.entradaMeia; idInteira++) {
-			let novoIngresso = {
-				qrCode: "../../images/qrcode.40772041.png",
-				isMeiaEntrada: false,
-				filme: $rootScope.filmeSelecionado._id
-			};
+			console.log(novoIngresso);
 			RestService.add("http://localhost:8080/api/ingresso/",novoIngresso);
 		}
 	}

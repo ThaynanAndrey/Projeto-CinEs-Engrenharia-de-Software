@@ -13,7 +13,14 @@ angular.module("cines")
 				return true;
 			}
 			return false;
-		}
+		};
+
+		$scope.logout = function () {
+			RestService.find("http://localhost:8080/api/logout/",function(response){
+	      $rootScope.usuarioLogado = undefined;
+	      $state.go('home');
+	    });
+		};
 
     function buildToggler(componentId) {
       return function() {
