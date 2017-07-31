@@ -6,7 +6,7 @@ angular.module("cines")
 							classificacao:"Classificacao"};
 
 	$scope.tiposDeGenero = ["Ação","Aventura","Comédia","Drama",
-							"Fantasia","Romance","Suspense","Terror"];
+							"Fantasia","Romance","Suspense","Terror"]; 
 
 	$scope.tiposDeClassificacoes = [0,10,12,14,16,18];
 
@@ -22,11 +22,11 @@ angular.module("cines")
 		if($scope.filtros.length==0)
 			return true
 		else{
-			return validarGeneros(filme) && validarClassificacao(filme);
+			return validarFiltroDeGeneros(filme) && validarFiltroDeClassificacao(filme);
 		}
 	};
 
-	function validarClassificacao(filme){
+	function validarFiltroDeClassificacao(filme){
 		let temClassificacao = false;
 		let classificacaoValida = false;
 		$scope.filtros.forEach(function(filtro){
@@ -42,7 +42,7 @@ angular.module("cines")
 			return classificacaoValida;
 	}
 
-	function validarGeneros(filme){
+	function validarFiltroDeGeneros(filme){
 		let temGenero = false;
 		let generosValidos = true;
 		$scope.filtros.forEach(function(filtro){
@@ -120,10 +120,34 @@ angular.module("cines")
 	        ]
     	}
 
-    	let homemAranha = {
+    	let homemAranhaLegendado = {
 	        nome: "Homem-Aranha: De volta ao lar (LEGENDADO)",
 	        imagem: "../../images/homemAranha.jpg",
 	        sala: 5,
+	        genero: "Ação, Aventura",
+	        classificacao: 12,
+	        sinopse: "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
+	        tempoDeDuracao: "2 horas e 13 minutos",
+	        fimDeCartaz: "2017-08-27T00:00:00.000Z",
+	        __v: 0,
+	        sessoes: [
+	            {
+	                horario: "2017-07-17T14:30:00.000Z",
+	                cadeiras:[],
+	                cadeirasOcupadas: 0
+	            },
+	            {
+	                horario: "2017-07-17T19:40:00.000Z",
+	                cadeiras:[],
+	                cadeirasOcupadas: 0
+	            }
+	        ]
+    	}
+
+    	let homemAranhaDublado = {
+	        nome: "Homem-Aranha: De volta ao lar (DUBLADO)",
+	        imagem: "../../images/homemAranha.jpg",
+	        sala: 4,
 	        genero: "Ação, Aventura",
 	        classificacao: 12,
 	        sinopse: "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
@@ -168,7 +192,31 @@ angular.module("cines")
 	        ]
     	}
 
-    	let filmesAdc = [aMumia,mulherMaravilha, homemAranha];
+    	let transformers = {
+	        nome: "Transformer: O último cavaleiro (LEGENDADO)",
+	        imagem: "../../images/transformers.jpg",
+	        sala: 2,
+	        genero: "Ação, Ficção",
+	        classificacao: 12,
+	        sinopse: "Os humanos estão em guerra com os Transformers, que precisam se esconder na medida do possível. Cade Yeager (Mark Wahlberg) é um de seus protetores, liderando um núcleo de resistência situado em um ferro-velho. É lá que conhece Izabella (Isabela Moner), uma garota de 15 anos que luta para proteger um pequeno robô defeituoso. Paralelamente, Optimus Prime viaja pelo universo rumo a Cybertron, seu planeta-natal, de forma a entender o porquê dele ter sido destruído. Só que, na Terra, Megatron se prepara para um novo retorno, mais uma vez disposto a tornar os Decepticons os novos soberanos do planeta.",
+	        tempoDeDuracao: "2 horas e 29 minutos",
+	        fimDeCartaz: "2017-08-25T00:00:00.000Z",
+	        __v: 0,
+	        sessoes: [
+	            {
+	                horario: "2017-07-17T16:20:00.000Z",
+	                cadeiras:[],
+	                cadeirasOcupadas: 0
+	            },
+	            {
+	                horario: "2017-07-17T20:30:00.000Z",
+	                cadeiras: [],
+	                cadeirasOcupadas: 0
+	            }
+	        ]
+    	}
+
+    	let filmesAdc = [aMumia, mulherMaravilha, homemAranhaDublado, homemAranhaLegendado, transformers];
     	for(k=0;k<filmesAdc.length;k++){
     		for(i=0;i<filmesAdc[k].sessoes.length;i++){
 				for(j=1;j<85;j++){

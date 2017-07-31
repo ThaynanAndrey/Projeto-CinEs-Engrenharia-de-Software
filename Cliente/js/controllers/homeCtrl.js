@@ -6,7 +6,7 @@ angular.module("cines")
 
     $scope.filmesEmDestaque = [{ src:"../../images/mulherMaravilha.jpg"},
                                { src:"../../images/homemAranha.jpg"},
-                               { src:"../../images/aMumia.jpg"}];
+                               { src:"../../images/transformers.jpg"}];
 
 	  $scope.usuarioLogado = function () {
 			if($rootScope.usuarioLogado !== undefined){
