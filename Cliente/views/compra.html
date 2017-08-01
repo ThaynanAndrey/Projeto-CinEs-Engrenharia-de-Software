@@ -1,11 +1,11 @@
 <div style="padding-left: 20%; padding-right: 20%;" flex>
-	<h2>Comprar ingresso(s)</h2>
-	<h3>Filme: {{filmeSelecionado.nome}}</h3>
+	<h1><b>Comprar ingresso(s)</b></h1>
+	<h3><b>Filme:</b> {{filmeSelecionado.nome}}</h3>
 	<div flex-xs flex-gt-xs="60" layout="row" >
-		<h3>Data: </h3>
+		<h3><b>Data: </b></h3>
 		<md-datepicker ng-model="dataSelecionada" md-min-date="dataAtual" md-max-date="fimDeCartaz"
 			md-placeholder="Enter date" style="margin-right:20px; margin-top:15px;"></md-datepicker>
-		<h3>Horários: </h3>
+		<h3><b>Horários: </b></h3>
 		<md-select class="md-errors-spacer" style="margin-left:10px" ng-model="horarioSelecionado" placeholder="Selecione">
 			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario" ng-click="selecionarSessao(sessao)">
 				{{formatarData(sessao.horario)}}
@@ -15,13 +15,21 @@
 	<div ng-show="horarioSelecionado">
 		<h3>Selecione a(s) cadeira(s) desejada(s): </h3>
 		</br>
-		<div id="wid">
-			<img ng-repeat="cadeira in sessaoSelecionada.cadeiras" title="Numeração: {{cadeira.numeracao}}"
-			 ng-click="selecionarCadeira(cadeira, sessaoSelecionada.cadeiras)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
-			<!--img ng-repeat="cadeira in cadeiras" title="Numeração: {{cadeira.numeracao}}" ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}"-->
-		</div>
-		<CENTER><img style="margin-top:10px;margin-bottom:20px" src="images/tela.jpg"></CENTER>
+		<form flex-xs flex-gt-xs="80" style="min-width: 850px;max-width: 850px;">
+			<div id="wid">
+				<img ng-repeat="cadeira in sessaoSelecionada.cadeiras" title="Numeração: {{cadeira.numeracao}}"
+				 ng-click="selecionarCadeira(cadeira, sessaoSelecionada.cadeiras)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
+				<!--img ng-repeat="cadeira in cadeiras" title="Numeração: {{cadeira.numeracao}}" ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}"-->
+			</div>
+			<img style="margin-top:10px" src="images/tela.jpg">
+		</form>
 		</br>
-		<md-button class="md-raised md-primary" ui-sref="pagamento" >Realizar compra</md-button>
+		<div layout="row">
+			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined" ui-sref="pagamento" >Realizar compra</md-button>
+			<span ng-hide="usuarioLogado">
+				Realize <a href="#!/login" ng-hide="usuarioLogado">login</a> ou
+				<a href="#!/registro" ng-hide="usuarioLogado" >cadastre-se</a> para realizar a compra.
+			<span>
+		</div>
 	</div>
 </div>

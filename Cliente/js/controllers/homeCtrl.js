@@ -8,19 +8,12 @@ angular.module("cines")
                                { src:"../../images/homemAranha.jpg"},
                                { src:"../../images/transformers.jpg"}];
 
-	  $scope.usuarioLogado = function () {
-			if($rootScope.usuarioLogado !== undefined){
-				return true;
-			}
-			return false;
-		};
-
-		$scope.logout = function () {
-			RestService.find("http://localhost:8080/api/logout/",function(response){
-	      $rootScope.usuarioLogado = undefined;
-	      $state.go('home');
+	$scope.logout = function () {
+		RestService.find("http://localhost:8080/api/logout/",function(response){
+	    	$rootScope.usuarioLogado = undefined;
+	    	$state.go('home');
 	    });
-		};
+	};
 
     function buildToggler(componentId) {
       return function() {
