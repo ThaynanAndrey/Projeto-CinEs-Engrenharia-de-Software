@@ -3,7 +3,8 @@ angular.module("cines")
 .controller("filmesCtrl", ['$scope','$rootScope', 'RestService', function($scope, $rootScope,RestService) {
 
 	$scope.tiposDeFiltragem = {genero:"Genero",
-							classificacao:"Classificacao"};
+							classificacao:"Classificacao",
+							nome: "Nome"};
 
 	$scope.tiposDeGenero = ["Ação","Aventura","Comédia","Drama",
 							"Fantasia","Romance","Suspense","Terror"]; 
@@ -12,21 +13,33 @@ angular.module("cines")
 
 	$scope.filtros = [];
 
-	$scope.tipoDeFiltragem = $scope.tiposDeFiltragem.genero;
+	$scope.tipoDeFiltragem = $scope.tiposDeFiltragem.nome;
 
 	$scope.selecionarFilme = function(filme){
 		$rootScope.filmeSelecionado = filme;
 	};
 
 	$scope.mostrarFilme = function(filme){
-		if($scope.filtros.length==0)
-			return true
-		else{
-			return validarFiltroDeGeneros(filme) && validarFiltroDeClassificacao(filme);
-		}
+		return validarFiltroPorGenero(filme) 
+			&& validarFiltroPorClassificacao(filme)
+			&& validarFiltroPorNome(filme);
 	};
 
-	function validarFiltroDeClassificacao(filme){
+	$scope.limparFiltragemPorNome = function(){
+		$scope.searched = "";
+	};
+
+	function validarFiltroPorNome(filme){
+		if($scope.searched)
+			return filme.nome.toLowerCase().indexOf($scope.searched.toLowerCase())>-1;
+		else
+			return true
+	}
+
+	function validarFiltroPorClassificacao(filme){
+		if($scope.filtros.length==0)
+			return true
+
 		let temClassificacao = false;
 		let classificacaoValida = false;
 		$scope.filtros.forEach(function(filtro){
@@ -42,7 +55,10 @@ angular.module("cines")
 			return classificacaoValida;
 	}
 
-	function validarFiltroDeGeneros(filme){
+	function validarFiltroPorGenero(filme){
+		if($scope.filtros.length==0)
+			return true
+
 		let temGenero = false;
 		let generosValidos = true;
 		$scope.filtros.forEach(function(filtro){
@@ -216,7 +232,7 @@ angular.module("cines")
 	        ]
     	}
 
-    	let filmesAdc = [aMumia, mulherMaravilha, homemAranhaDublado, homemAranhaLegendado, transformers];
+    	let filmesAdc = [mulherMaravilha, aMumia, homemAranhaLegendado, transformers, homemAranhaDublado];
     	for(k=0;k<filmesAdc.length;k++){
     		for(i=0;i<filmesAdc[k].sessoes.length;i++){
 				for(j=1;j<85;j++){

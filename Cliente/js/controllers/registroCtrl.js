@@ -11,15 +11,29 @@ angular.module("cines")
   };
 
   $scope.registrar = function(registro){
-    let novoUsuario = {}
+    var novoUsuario = {}
+    var usuarioValido = true;
     novoUsuario.nome = registro.nome,
-    novoUsuario.email = registro.nome,
+    novoUsuario.email = registro.email,
     novoUsuario.senha = registro.senha,
     novoUsuario.cpf = registro.cpf
+    
+    RestService.find('http://localhost:8080/api/usuario', function(response) {
+      response.data.forEach(function(usuario){
+        if(novoUsuario.email == usuario.email || novoUsuario.cpf == usuario.cpf){
+          usuarioValido = false;
+        }
+      });
+      if(usuarioValido){
+        RestService.add("http://localhost:8080/api/usuario/",novoUsuario);
+        mostrarToast("Usuário cadastrado com sucesso!");
+        $state.go('home');
+      }
+      else
+        mostrarToast("Insira um CPF e Email que nunca foram cadastrados.");
+    });
 
-    RestService.add("http://localhost:8080/api/usuario/",novoUsuario);
-    mostrarToast("Usuário cadastrado com sucesso!");
-    $state.go('home');
+    
   }
 
    $scope.showAlert = function(ev) {
@@ -49,7 +63,7 @@ angular.module("cines")
 		$mdToast.show(
       		$mdToast.simple()
         		.textContent(frase)
-        		.position('top right')
+        		.position('bottom right')
         		.hideDelay(3000)
     	);
 	};

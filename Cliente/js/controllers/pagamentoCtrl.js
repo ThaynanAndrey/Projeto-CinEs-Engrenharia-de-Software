@@ -64,7 +64,7 @@ angular.module("cines")
 		$mdToast.show(
       		$mdToast.simple()
         		.textContent(frase)
-        		.position('top right')
+        		.position('bottom right')
         		.hideDelay(3000)
     	);
 	};
