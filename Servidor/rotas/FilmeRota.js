@@ -22,12 +22,15 @@ filmeRouter.get('/', function(req, res) {
  */
 filmeRouter.get('/:id', function(req, res) {
 	let query = Filme.findById(req.params.id);
+
 	query.exec(function(err, data) {
-		if (err) {
-			console.log(err);
-			return res.status(500).json({erro: "Algo deu errado"});
+		if (err || data == null) {
+			res.sendStatus(404);
 		}
-		res.json(data);
+		else{
+			console.log("Filme e tal e pa: "+ data);
+				res.json(data);
+		}
 	});
 });
 

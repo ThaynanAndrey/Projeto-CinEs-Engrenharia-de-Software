@@ -4,6 +4,33 @@ supertest = require('supertest'),
 api = supertest('http://localhost:8080')
 
 describe('Testes da classe UsuarioRota',function(){
+  /*
+    nome: {
+  		type:String,
+  		required:true
+  	},
+  	email: {
+  		type:String,
+  		required:true
+  	},
+  	senha: {
+  		type:String,
+  		required:true
+  	},
+  	cpf:{
+  		type:String,
+  		required:true
+  	},
+  	ingressos: {
+  		type:[{
+  				type:  mongoose.Schema.ObjectId,
+  				ref: 'Ingresso'
+  			}]
+  	}
+  */
+
+
+
   var usuarioId = "6063114bd386d8fadbd6b004";
 	before(function(done){
 		api.post('/api/usuario')
@@ -11,7 +38,8 @@ describe('Testes da classe UsuarioRota',function(){
 		.send({nome: "Fulano",
     _id: usuarioId,
   	email: "fulano@email.com",
-  	senha: "senha"
+  	senha: "senha",
+    cpf: "11122233345"
     })
 		.expect('Content-Type',/json/)
 		.expect(201)
@@ -71,7 +99,8 @@ it('Deve criar um objeto Usuario',function(done){
  .set('Accept','application/json')
  .send({nome: "haha",
  email: "hehe@email.com",
- senha: "hoho"
+ senha: "hoho",
+ cpf: "12345678912"
  })
  .expect('Content-Type',/json/)
  .expect(200)

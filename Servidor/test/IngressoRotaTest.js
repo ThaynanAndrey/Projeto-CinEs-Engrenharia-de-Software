@@ -10,7 +10,7 @@ describe('Testes da classe IngressoRota',function(){
 		.set("Accept","application/x-www-form-urlencoded")
 		.send({qrCode: "dd48",
     _id: ingressoId,
-  	isMeiaEntrada: true
+  	numeroDaCadeira: 2
   })
 		.expect('Content-Type',/json/)
 		.expect(201)
@@ -36,8 +36,8 @@ describe('Testes da classe IngressoRota',function(){
 		.end(function(err,res){
 			expect(res.body).to.have.property("qrCode");
 			expect(res.body.nome).to.not.equal(null);
-			expect(res.body).to.have.property("isMeiaEntrada");
-			expect(res.body.imagem).to.not.equal(null);
+			expect(res.body).to.have.property("numeroDaCadeira");
+			expect(res.body.numeroDaCadeira).to.not.equal(null);
 			done();
 		});
 	});
@@ -66,7 +66,7 @@ describe('Testes da classe IngressoRota',function(){
    .set('Accept','application/json')
    .send({
      qrCode: "ab15",
-   	isMeiaEntrada: false
+   	numeroDaCadeira: 1
    })
    .expect('Content-Type',/json/)
    .expect(200)
