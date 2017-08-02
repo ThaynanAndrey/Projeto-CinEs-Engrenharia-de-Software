@@ -25,7 +25,7 @@
 		</form>
 		</br>
 		<div layout="row">
-			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined" ui-sref="pagamento" >Realizar compra</md-button>
+			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined" ng-click="realizarCompra()" >Realizar compra</md-button>
 			<span ng-hide="usuarioLogado">
 				Realize <a href="#!/login" ng-hide="usuarioLogado">login</a> ou
 				<a href="#!/registro" ng-hide="usuarioLogado" >cadastre-se</a> para realizar a compra.
