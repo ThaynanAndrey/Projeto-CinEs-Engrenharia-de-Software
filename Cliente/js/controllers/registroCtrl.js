@@ -27,7 +27,7 @@ angular.module("cines")
       if(usuarioValido){
         RestService.add("http://localhost:8080/api/usuario/",novoUsuario);
         mostrarToast("Usuário cadastrado com sucesso!");
-        $state.go('home');
+        $state.go('login');
       }
       else
         mostrarToast("Insira um CPF e Email que nunca foram cadastrados.");

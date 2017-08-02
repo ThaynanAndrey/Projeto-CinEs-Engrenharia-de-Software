@@ -36,19 +36,17 @@ angular.module("cines")
 	}
 
 	function gerarIngressos() {
-		console.log("INGRESSOS!");
 		for (var i = 0; i < $rootScope.cadeirasSelecionadas.length; i++) {
 			let novoIngresso = {
 				qrCode: "../../images/qrcode.40772041.png",
 				numeroDaCadeira: $rootScope.cadeirasSelecionadas[i],
 				filme: $rootScope.filmeSelecionado._id
 			};
-			console.log(novoIngresso);
 			RestService.add("http://localhost:8080/api/ingresso/",novoIngresso);
 		}
 	}
 
-	$scope.comprarIngresso = function(){
+	$scope.comprarIngressos = function(){
 		let qtdCadeiras = $rootScope.cadeirasSelecionadas.length;
 		if(($scope.user.entradaMeia+$scope.user.entradaInteira) != qtdCadeiras){
 			mostrarToast("Selecione um total de " + qtdCadeiras + " ingressos.");
@@ -67,9 +65,5 @@ angular.module("cines")
         		.position('bottom right')
         		.hideDelay(3000)
     	);
-	};
-
-	$scope.showScope = function () {
-		console.log($rootScope);
 	};
 }]);

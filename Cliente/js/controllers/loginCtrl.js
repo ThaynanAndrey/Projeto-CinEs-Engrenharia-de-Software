@@ -5,12 +5,20 @@ angular.module("cines")
   $scope.logar = function (usuario) {
     RestService.add("http://localhost:8080/api/authenticate/", usuario, function(response){
       $rootScope.usuarioLogado = response.data.usuario;
-      $state.go('home');
+      if(response.data.usuario)
+      	$state.go('home');
+      else
+      	mostrarToast("Email ou senha inválido. Tente novamente.");
     });
   }
 
-  $scope.showScope = function () {
-    console.log($rootScope);
-  }
+	function mostrarToast(frase){
+		$mdToast.show(
+	  		$mdToast.simple()
+	    		.textContent(frase)
+	    		.position('bottom right')
+	    		.hideDelay(3000)
+		);
+	};
 
 }]);
