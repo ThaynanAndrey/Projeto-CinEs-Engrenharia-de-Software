@@ -1,3 +1,4 @@
+/*
 describe("Testando o  AngularJs",function(){
   let indisponivelPath = "images/cadeiraIndisponivel.jpg";
   let selecionadaPath = "images/cadeiraSelecionada.jpg";
@@ -11,7 +12,6 @@ describe("Testando o  AngularJs",function(){
     beforeEach(inject(function($controller,$rootScope){
       scope = $rootScope.$new();
       ctrl = $controller("compraCtrl", {$scope:scope});
-      console.log(ctrl);
     }));
 
     it("Deve inicializar os atributos no scope",function(){
@@ -46,3 +46,4 @@ describe("Testando o  AngularJs",function(){
     });
   });
 });
+*/
