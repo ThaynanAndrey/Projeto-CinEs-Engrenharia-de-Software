@@ -16,6 +16,9 @@ angular.module("cines")
 	}
 
 	function getFimDeCartaz(){
+		if (!$rootScope.filmeSelecionado){
+			return new Date();
+		}
 		let data = $rootScope.filmeSelecionado.fimDeCartaz;
 		let ano = parseInt(data.substring(0,4));
 		let mes = parseInt(data.substring(5,7));
