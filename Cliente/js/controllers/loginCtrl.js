@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("loginCtrl", ['$scope','$rootScope', '$state','RestService', function($scope,$rootScope, $state,RestService) {
+.controller("loginCtrl", ['$scope','$rootScope', '$state','RestService', '$mdToast', function($scope,$rootScope, $state,RestService,$mdToast) {
 
   $scope.logar = function (usuario) {
     RestService.add("http://localhost:8080/api/authenticate/", usuario, function(response){
@@ -8,7 +8,7 @@ angular.module("cines")
       if(response.data.usuario)
       	$state.go('home');
       else
-      	mostrarToast("Email ou senha inválido. Tente novamente.");
+      	mostrarToast("Dados inválidos. Tente novamente.");
     });
   }
 
@@ -19,6 +19,19 @@ angular.module("cines")
 	    		.position('bottom right')
 	    		.hideDelay(3000)
 		);
+	}
+
+  $scope.showScope = function () {
+    console.log($rootScope);
+  };
+
+  function mostrarToast(frase){
+		$mdToast.show(
+      		$mdToast.simple()
+        		.textContent(frase)
+        		.position('bottom right')
+        		.hideDelay(3000)
+    	);
 	};
 
 }]);

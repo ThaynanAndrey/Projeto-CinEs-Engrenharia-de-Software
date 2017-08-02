@@ -17,7 +17,7 @@ angular.module("cines")
     novoUsuario.email = registro.email,
     novoUsuario.senha = registro.senha,
     novoUsuario.cpf = registro.cpf
-    
+
     RestService.find('http://localhost:8080/api/usuario', function(response) {
       response.data.forEach(function(usuario){
         if(novoUsuario.email == usuario.email || novoUsuario.cpf == usuario.cpf){
@@ -33,7 +33,7 @@ angular.module("cines")
         mostrarToast("Insira um CPF e Email que nunca foram cadastrados.");
     });
 
-    
+
   }
 
    $scope.showAlert = function(ev) {
