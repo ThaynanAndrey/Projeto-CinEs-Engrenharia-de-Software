@@ -15,9 +15,20 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      "node_modules/angular/angular.min.js",
+      "node_modules/angular-ui-router/release/angular-ui-router.min.js",
       'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/angular/angular.js',
+      "node_modules/angular-jk-carousel/dist/jk-carousel.min.js",
+      "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js",
+      "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",
+
+      "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js",
+      "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js",
+      "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js",
+      "http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js",
       'app.js',
+      'js/services/*.js',
+      "js/controllers/*.js",
       'js/test/*.js'
     ],
 
