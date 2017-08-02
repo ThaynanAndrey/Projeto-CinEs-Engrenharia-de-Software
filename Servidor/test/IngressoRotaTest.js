@@ -1,7 +1,10 @@
 const should = require('chai').should(),
 expect = require('chai').expect,
 supertest = require('supertest'),
-api = supertest('http://localhost:8080')
+api = supertest('http://localhost:8080');
+let app = require('../app.js');
+
+
 
 describe('Testes da classe IngressoRota',function(){
   var ingressoId = "4063114bd386d8fadbd6b004";

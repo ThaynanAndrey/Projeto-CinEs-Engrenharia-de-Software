@@ -1,11 +1,11 @@
 const should = require('chai').should(),
 expect = require('chai').expect,
 supertest = require('supertest'),
-api = supertest('http://localhost:8080')
-
+api = supertest('http://localhost:8080');
+let app = require('../app.js');
 
 describe('Testes da classe FilmeRota',function(){
-	var filmeId = "6063114bd386d8fadbd6b008";
+	var filmeId = "9063114bd386d8fadbd6b005";
 	before(function(done){
 		api.post('/api/filme')
 		.set("Accept",'application/json')
@@ -13,22 +13,20 @@ describe('Testes da classe FilmeRota',function(){
 			nome: "A Mumia (LEGENDADO)",
 			_id: filmeId,
 	    imagem: "../../images/aMumia.jpg",
-	    sala: 4,
 	    genero: "Aventura, Fantasia e Terror",
 	    classificacao: 14,
-	    sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente tirado está mumificada. Apesar de estar sepultada em sua cripta, ela desperta nos dias atuais. Com uma maldade acumulada ao longo dos anos, ela espelha terror desde as areais do Oriente Médio até os becos de Londres.",
+	    sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente.",
 	    tempoDeDuracao: "1 horas e 51 minutos",
-			fimDeCartaz: "2017-08-30T00:00:00.000Z",
-	    __v: 0,
+			fimDeCartaz: new Date(),
 	    sessoes: [
 	          {
-	              horario: "2017-07-17T16:20:00.419Z",
-	              cadeiras:[],
+	              horario: new Date(),
+	              cadeiras:[{}],
 	              cadeirasOcupadas: 0
 	          },
 	          {
-	              horario: "2017-07-17T20:50:00.419Z",
-	            	cadeiras:[],
+	              horario: new Date(),
+	            	cadeiras:[{}],
 	              cadeirasOcupadas: 0
 	          }
 	      ]
@@ -40,7 +38,6 @@ describe('Testes da classe FilmeRota',function(){
 			done();
 		});
 	});
-
 
 	it('A requisicao get deve retornar uma resposta 200',function(done){
 		api.get('/api/filme')
@@ -63,8 +60,6 @@ describe('Testes da classe FilmeRota',function(){
 			expect(res.body.nome).to.not.equal(null);
 			expect(res.body).to.have.property("imagem");
 			expect(res.body.imagem).to.not.equal(null);
-			expect(res.body).to.have.property("sala");
-			expect(res.body.sala).to.not.equal(null);
 			expect(res.body).to.have.property("genero");
 			expect(res.body.genero).to.not.equal(null);
 			expect(res.body).to.have.property("classificacao");
@@ -83,28 +78,27 @@ describe('Testes da classe FilmeRota',function(){
 		api.put('/api/filme/'+filmeId)
 		.set('Accept','application/x-www-form-urlencoded')
 		.send({
-	        nome: "A Múmia (LEGENDADO)",
-	        imagem: "../../images/aMumia.jpg",
-	        sala: 4,
-	        genero: "Aventura, Fantasia e Terror",
-	        classificacao: 18,
-	        sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente tirado está mumificada. Apesar de estar sepultada em sua cripta, ela desperta nos dias atuais. Com uma maldade acumulada ao longo dos anos, ela espelha terror desde as areais do Oriente Médio até os becos de Londres.",
-	        tempoDeDuracao: "1 horas e 51 minutos",
-	        fimDeCartaz: "2017-08-21T00:00:00.000Z",
-	        __v: 0,
-	        sessoes: [
-	            {
-	                horario: "2017-07-17T16:20:00.000Z",
-	                cadeiras:[],
-	                cadeirasOcupadas: 0
-	            },
-	            {
-	                horario: "2017-07-17T20:50:00.000Z",
-	                cadeiras:[],
-	                cadeirasOcupadas: 0
-	            }
-	        ]
-    	})
+			nome: "A Mumia (LEGENDADO)",
+			_id: filmeId,
+	    imagem: "../../images/aMumia.jpg",
+	    genero: "Aventura, Fantasia e Terror",
+	    classificacao: 18,
+	    sinopse: "Nas profundezas do deserto, uma antiga rainha cujo destino foi injustamente.",
+	    tempoDeDuracao: "1 horas e 51 minutos",
+			fimDeCartaz: new Date(),
+	    sessoes: [
+	          {
+	              horario: new Date(),
+	              cadeiras:[{}],
+	              cadeirasOcupadas: 0
+						},
+	          {
+	              horario: new Date(),
+	            	cadeiras:[{}],
+	              cadeirasOcupadas: 0
+	          }
+	      ]
+		})
 		.expect(200)
 		.end(function(err, res){
 			expect(res.body.classificacao).to.equal(18);
@@ -112,45 +106,41 @@ describe('Testes da classe FilmeRota',function(){
 		});
 	});
 
-  /*
-	 it('Deve deletar o filme',function(done){
-	    api.del('/api/filme/'+filmeId)
-			.expect(200)
-			.end(done);
-	  });
-*/
+	it('Deve deletar o Filme',function(done){
+		 api.del('/api/filme/'+filmeId)
+		 .expect(200)
+		 .end(done);
+	 });
 
 	it('Deve criar um objeto Filme',function(done){
 		api.post('/api/filme')
 		.set('Accept','application/json')
 		.send({
-				nome: "Mulher-Maravilha (DUBLADO)",
-				imagem: "../../images/mulherMaravilha.jpg",
-				sala: 1,
-				genero: "Ação, Aventura, Fantasia",
-				classificacao: 12,
-				sinopse: "Treinada desde cedo para ser uma guerreira imbatível, Diana Prince nunca saiu da paradisíaca ilha em que é reconhecida como princesa das Amazonas. Quando o piloto Steve Trevor se acidenta e cai em uma praia do local, ela descobre que uma guerra sem precedentes está se espalhando pelo mundo e decide deixar seu lar certa de que pode parar o conflito. Lutando para acabar com todas as lutas, Diana percebe o alcance de seus poderes e sua verdadeira missão na Terra.",
-				tempoDeDuracao: "2 horas e 21 minutos",
-				fimDeCartaz: "2017-08-30T00:00:00.000Z",
-				__v: 0,
-				sessoes: [
-						{
-								horario: "2017-07-17T18:00:00.000Z",
-								cadeiras:[],
-								cadeirasOcupadas: 0
+			nome: "Mulher maravilha",
+	    imagem: "../../images/aMumia.jpg",
+	    genero: "Aventura",
+	    classificacao: 14,
+	    sinopse: "A melhor heroina.",
+	    tempoDeDuracao: "2 horas e 11 minutos",
+			fimDeCartaz: new Date(),
+	    sessoes: [
+	          {
+	              horario: new Date(),
+	              cadeiras:[{}],
+	              cadeirasOcupadas: 0
 						},
-						{
-								horario: "2017-07-17T21:30:00.000Z",
-								cadeiras: [],
-								cadeirasOcupadas: 0
-						}
-				]
+	          {
+	              horario: new Date(),
+	            	cadeiras:[{}],
+	              cadeirasOcupadas: 0
+	          }
+	      ]
 		})
 		.expect('Content-Type',/json/)
 		.expect(200)
 		.end(function(err, res){
 			res.body.should.have.property('nome');
-      expect(res.body.nome).to.equal("Mulher-Maravilha (DUBLADO)");
+      expect(res.body.nome).to.equal("Mulher maravilha");
 			done();
 		});
 		});

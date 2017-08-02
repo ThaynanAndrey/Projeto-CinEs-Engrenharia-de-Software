@@ -1,7 +1,6 @@
 let express = require('express');
 let filmeRouter = express.Router();
 let Filme = require('../modelos/Filme.js');
-let errosUtil = require('../util/errosUtil');
 
 /**
  * Requisicao get a rota da página que exibe os filmes
