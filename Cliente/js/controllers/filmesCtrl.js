@@ -76,7 +76,7 @@ angular.module("cines")
 	}
 
 	$scope.adcFiltro = function(){
-		if($scope.filtros.indexOf($scope.filtro)==-1 && $scope.filtro)
+		if($scope.filtros.indexOf($scope.filtro)==-1 && $scope.filtro!=undefined)
 			$scope.filtros.push($scope.filtro);
 	};
 
@@ -92,7 +92,6 @@ angular.module("cines")
 
 	function atualizarListaFilmes(){
 		RestService.find('http://localhost:8080/api/filme', function(response) {
-			console.log(response.data);
 			$scope.filmes = response.data;
 		});
 	}
@@ -108,6 +107,13 @@ angular.module("cines")
 				RestService.delete('http://localhost:8080/api/filme/'+response.data[i]._id);
 			}
 		});
+	}
+
+	$scope.mostrarClassificacao = function(classificacao){
+		if(classificacao==0)
+			return "Livre"
+		else
+			return classificacao
 	}
 
 	$scope.criarFilmes = function (){

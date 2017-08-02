@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("homeCtrl", ['$scope', '$mdSidenav', '$rootScope', 'RestService', function($scope, $mdSidenav,$rootScope,RestService) {
+.controller("homeCtrl", ['$scope', '$mdSidenav', '$rootScope', 'RestService', '$state', function($scope, $mdSidenav,$rootScope,RestService,$state) {
 
 	$scope.toggleLeft = buildToggler('left');
 
@@ -9,8 +9,9 @@ angular.module("cines")
                                { src:"../../images/transformers.jpg"}];
 
 	$scope.logout = function () {
-		RestService.find("http://localhost:8080/api/logout/",function(response){
-	    	$rootScope.usuarioLogado = undefined;
+		RestService.find("http://localhost:8080/api/logout/", function(response) {
+				console.log("logout")
+				$rootScope.usuarioLogado = undefined;
 	    	$state.go('home');
 	    });
 	};

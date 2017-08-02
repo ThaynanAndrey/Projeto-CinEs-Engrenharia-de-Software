@@ -1,6 +1,6 @@
 angular.module("cines")
 
-.controller("compraCtrl", ['$scope','$rootScope','RestService', function($scope,$rootScope, RestService) {
+.controller("compraCtrl", ['$scope','$rootScope','RestService', '$state', '$mdToast', function($scope,$rootScope, RestService, $state, $mdToast) {
 
 	$scope.dataAtual = new Date();
 	$scope.dataSelecionada = new Date();
@@ -9,10 +9,6 @@ angular.module("cines")
 	$scope.cadeiraIndisponivelPath = "images/cadeiraIndisponivel.jpg";
 	$scope.cadeiraSelecionadaPath = "images/cadeiraSelecionada.jpg";
 	$scope.cadeiraDisponivelPath = "images/cadeiraDisponivel.jpg";
-
-	$scope.viewScope = function(){
-		console.log($rootScope);
-	}
 
 	$scope.selecionarCadeira = function(cadeira, cadeiras){
 		if(cadeira.disponivel)
@@ -54,8 +50,26 @@ angular.module("cines")
 				}
 
 		}
+		console.log($rootScope.cadeirasSelecionadas.length);
 	};
 	$scope.selecionarSessao = function (sessao) {
 		$rootScope.sessaoSelecionada = sessao;
 	}
+
+	$scope.realizarCompra = function () {
+		if($rootScope.cadeirasSelecionadas.length === 0){
+			mostrarToast("Nenhuma cadeira selecionada")
+		}else{
+			$state.go('pagamento');
+		}
+	}
+
+	function mostrarToast(frase){
+		$mdToast.show(
+      		$mdToast.simple()
+        		.textContent(frase)
+        		.position('bottom right')
+        		.hideDelay(3000)
+    	);
+	};
 }]);

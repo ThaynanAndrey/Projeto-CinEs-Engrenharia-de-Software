@@ -19,13 +19,12 @@
 			<div id="wid">
 				<img ng-repeat="cadeira in sessaoSelecionada.cadeiras" title="Numeração: {{cadeira.numeracao}}"
 				 ng-click="selecionarCadeira(cadeira, sessaoSelecionada.cadeiras)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
-				<!--img ng-repeat="cadeira in cadeiras" title="Numeração: {{cadeira.numeracao}}" ng-click="selecionarCadeira(cadeira)" data-ng-src="{{getCorDeCadeira(cadeira)}}"-->
 			</div>
 			<img style="margin-top:10px" src="images/tela.jpg">
 		</form>
 		</br>
 		<div layout="row">
-			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined" ui-sref="pagamento" >Realizar compra</md-button>
+			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined || cadeirasSelecionadas.length===0" ui-sref="pagamento" >Realizar compra</md-button>
 			<span ng-hide="usuarioLogado">
 				Realize <a href="#!/login" ng-hide="usuarioLogado">login</a> ou
 				<a href="#!/registro" ng-hide="usuarioLogado" >cadastre-se</a> para realizar a compra.

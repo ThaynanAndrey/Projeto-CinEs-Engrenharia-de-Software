@@ -15,20 +15,20 @@
 				</md-option>
 			</md-select>
 			<md-select class="md-errors-spacer" ng-show="tipoDeFiltragem == tiposDeFiltragem.classificacao" style="margin-left:15px;margin-top:10px" ng-model="filtro" placeholder="Selecione">
-				<md-option ng-repeat="classificacao in tiposDeClassificacoes" ng-value="classificacao">
-					<h4>{{classificacao}}</h4>
+				<md-option ng-repeat="classificacao in tiposDeClassificacoes" ng-value="mostrarClassificacao(classificacao)">
+					<h4>{{mostrarClassificacao(classificacao)}}</h4>
 				</md-option>
 			</md-select>
 			<form ng-show="tipoDeFiltragem == tiposDeFiltragem.nome", style="margin-top:15px; margin-left:5px">
 				<input type="text" ng-model="searched" name="focus" required class="search-box" placeholder="Insira o nome do filme" />
 				<button class="close-icon-search" ng-click="limparFiltragemPorNome()" type="reset"></button>
 			</form>
-			<md-button ng-show="tipoDeFiltragem != tiposDeFiltragem.nome" class="md-raised md-warn" ng-click="adcFiltro()" style="height:30px; margin-top:17px">Adicionar filtro</button>
+			<md-button ng-show="tipoDeFiltragem != tiposDeFiltragem.nome" class="md-raised md-warn md-hue-2" ng-click="adcFiltro()" style="height:30px; margin-top:17px;background-color:#9f0606">Adicionar filtro</button>
 		</span>
 
 		<span flex-xs flex-gt-xs="50" layout="row" ng-if="filtros.length!=0" style="margin:0px auto; margin-top:-30px">
-			<h3>Filtros: </h3> 
-			<form ng-repeat="filtro in filtros" style="margin-top:17px; margin-left:10px">
+			<h3><b>Filtros: </b></h3> 
+			<form ng-repeat="filtro in filtros" style="margin-top:25px; margin-left:10px">
 				<span type="text" name="focus"  style="text-align:left">
 					{{filtro}}<button class="close-icon-filter" ng-click="removerFiltro(filtro)" type="reset"></button>
 				 </span>	 
@@ -53,13 +53,9 @@
 	            	<span class="md-subhead" ng-if="filme.classificacao!=0"><b>Classificação:</b> Proibido para menores de {{filme.classificacao}} anos</span>
 	            	<span class="md-subhead" ng-if="filme.classificacao==0"><b>Classificação:</b> Livre para todas as idades</span>
 	            	<span class="md-subhead"><b>Tempo de duração: </b>{{filme.tempoDeDuracao}}</span>
+	            	<span class="md-subhead"><b>Sinopse: </b>{{filme.sinopse}}</span>
 	            </md-card-title-text>
 	        </md-card-title>
-	        <md-card-content style="margin-bottom:-15px;">
-	          <h4><b>Sinopse</b></h4>
-	          <p>{{filme.sinopse}}</p>
-	        </md-card-content>
-
 		  	<table class="table">
 			  	<thead class="thead-inverse">
 			    	<tr>
@@ -74,8 +70,7 @@
 			    	</tr>
 			    </tbody>
 			</table>
-
-			<md-button class="md-raised md-warn" ui-sref="compra" ng-click="selecionarFilme(filme)">Selecionar Filme</md-button>
+			<md-button class="md-raised md-warn md-hue-2" style="background-color:#9f0606" ui-sref="compra" ng-click="selecionarFilme(filme)">Selecionar Filme</md-button>
 	    </md-card>
     </div>
     <button ng-click="criarFilmes()">Criar filmes</button> 
