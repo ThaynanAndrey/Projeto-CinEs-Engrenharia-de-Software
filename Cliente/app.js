@@ -5,7 +5,6 @@ angular.module("cines", ['ui.router', 'ngMaterial','jkAngularCarousel'])
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-
             .state('home', {
                 url: "/",
                 templateUrl: "views/home.html",
