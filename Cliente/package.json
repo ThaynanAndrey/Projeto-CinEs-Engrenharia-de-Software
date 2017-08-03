@@ -10,7 +10,8 @@
     "angular-jk-carousel": "0.5.0",
     "angular-material": "1.1.4",
     "angular-mocks": "1.5.0",
-    "angular-ui-router": "1.0.3"
+    "angular-ui-router": "1.0.3",
+    "express": "4.15.3"
   },
   "devDependencies": {
     "jasmine": "^2.7.0",

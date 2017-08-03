@@ -1,4 +1,4 @@
-/*
+
 describe("Testando o  AngularJs",function(){
   let indisponivelPath = "images/cadeiraIndisponivel.jpg";
   let selecionadaPath = "images/cadeiraSelecionada.jpg";
@@ -46,4 +46,3 @@ describe("Testando o  AngularJs",function(){
     });
   });
 });
-*/
