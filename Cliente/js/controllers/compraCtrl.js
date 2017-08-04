@@ -53,7 +53,6 @@ angular.module("cines")
 				}
 
 		}
-		console.log($rootScope.cadeirasSelecionadas.length);
 	};
 	$scope.selecionarSessao = function (sessao) {
 		$rootScope.sessaoSelecionada = sessao;
