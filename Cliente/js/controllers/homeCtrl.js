@@ -9,11 +9,9 @@ angular.module("cines")
                                { src:"../../images/transformers.jpg"}];
 
 	$scope.logout = function () {
-		RestService.find("http://localhost:8080/api/logout/", function(response) {
-				console.log("logout")
-				$rootScope.usuarioLogado = undefined;
-	    	$state.go('home');
-	    });
+		console.log("logout")
+		$rootScope.usuarioLogado = undefined;
+		$state.go('home');
 	};
 
     function buildToggler(componentId) {
