@@ -6,25 +6,28 @@ let Ingresso = require('../modelos/Ingresso.js');
  * Requisicao get a rota da página dos ingressos
  */
 ingressoRouter.get('', function(req, res) {
-  Ingresso.find({}, function(err, data) {
-		if (err) {
-			res.sendStatus(500);
-		} else {
-			res.json(data);
-		}
-	});
+  let query = Ingresso.find({}).populate('filme');
+
+  query.exec(function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
 });
 
 /**
  * Requisicao get a rota da página dos ingressos de acordo com o id recebido
  */
 ingressoRouter.get('/:id', function(req, res) {
-  var idIngresso = { _id: req.params.id };
+  let query = Ingresso.findById(req.params.id).populate('filme');
 
-	Ingresso.findOne(idIngresso, function(err, data) {
+	query.exec(function(err, data) {
 		if (err || data == null) {
 			res.sendStatus(404);
-		} else {
+		}
+		else{
 			res.json(data);
 		}
 	});

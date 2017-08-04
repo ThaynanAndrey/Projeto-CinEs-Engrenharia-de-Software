@@ -41,12 +41,14 @@ angular.module("cines")
 			let novoIngresso = {
 				qrCode: "../../images/qrcode.40772041.png",
 				numeroDaCadeira: $rootScope.cadeirasSelecionadas[i],
-				filme: $rootScope.filmeSelecionado._id,
-				usuario: $rootScope.usuarioLogado._id
+				filme: $rootScope.filmeSelecionado._id
 			};
-			RestService.add("http://localhost:8080/api/ingresso/",novoIngresso);
+			RestService.add("http://localhost:8080/api/ingresso/",novoIngresso, function (response) {
+				$rootScope.usuarioLogado.ingressos.push(response.data._id);
+				RestService.edit("http://localhost:8080/api/usuario/" + $rootScope.usuarioLogado._id, $rootScope.usuarioLogado);
+			});
 		}
-		RestService.edit("http://localhost:8080/api/usuario/" + $rootScope.usuarioLogado._id, $rootScope.usuarioLogado);
+		//RestService.edit("http://localhost:8080/api/usuario/" + $rootScope.usuarioLogado._id, $rootScope.usuarioLogado);
 	}
 
 	$scope.comprarIngressos = function(){

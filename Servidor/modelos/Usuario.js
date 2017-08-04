@@ -27,7 +27,7 @@ let usuarioSchema = new Schema({
 				ref: 'Ingresso'
 			}]
 	}
-});
+}, { strict: false });
 
 let usuario = mongoose.model('Usuario',usuarioSchema);
 

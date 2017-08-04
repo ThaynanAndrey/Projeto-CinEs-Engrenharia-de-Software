@@ -6,29 +6,34 @@ let Usuario = require('../modelos/Usuario.js');
  * Requisicao get a rota da página do usuario
  */
 usuarioRouter.get('', function(req, res) {
-  Usuario.find({}, function(err, data) {
-		if (err) {
-			res.sendStatus(500);
-		} else {
-			res.json(data);
-		}
-	});
+  let query = Usuario.find({}).populate('ingressos');
+
+  query.exec(function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
 });
 
 /**
  * Requisicao get a rota da página do usuario de acordo com o id recebido
  */
 usuarioRouter.get('/:id', function(req, res) {
-  var idUsuario = { _id: req.params.id };
+  let query = Usuario.findById(req.params.id).populate('ingressos');
+  console.log(query);
 
-	Usuario.findOne(idUsuario, function(err, data) {
+	query.exec(function(err, data) {
 		if (err || data == null) {
 			res.sendStatus(404);
-		} else {
+		}
+		else{
 			res.json(data);
 		}
 	});
 });
+
 
 /**
  * Requisicao post a rota da página do usuario

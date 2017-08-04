@@ -14,18 +14,10 @@ let ingressoSchema = new Schema({
 		required: true
 	},
 	filme: {
-		type: {
-			type:  mongoose.Schema.ObjectId,
+			type: mongoose.Schema.ObjectId,
 			ref: 'Filme'
-		}
-	},
-	usuario: {
-		type: {
-			type:  mongoose.Schema.ObjectId,
-			ref: 'Usuario'
-		}
 	}
-});
+}, { strict: false });
 
 let ingresso = mongoose.model('Ingresso', ingressoSchema);
 
