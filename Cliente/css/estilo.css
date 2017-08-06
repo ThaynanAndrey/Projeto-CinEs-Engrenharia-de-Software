@@ -12,6 +12,11 @@ p {
   text-align: justify;
 }
 
+figure {
+    border: 1px solid #dddddd;
+    padding: 5px;
+}
+
 md-card {
   margin: auto;
   left: 0;
@@ -130,3 +135,4 @@ h1 {
 .search-box:not(:valid) ~ .close-icon-search {
   display: none;
 }
+

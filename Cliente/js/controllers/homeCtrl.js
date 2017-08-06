@@ -14,9 +14,14 @@ angular.module("cines")
 		$state.go('home');
 	};
 
-    function buildToggler(componentId) {
-      return function() {
-        $mdSidenav(componentId).toggle();
-      };
+  $scope.closeSidenav = function(){
+    $mdSidenav('left')
+       .close()
+  }
+  
+  function buildToggler(componentId) {
+    return function() {
+      $mdSidenav(componentId).toggle();
     };
+  };
 }]);

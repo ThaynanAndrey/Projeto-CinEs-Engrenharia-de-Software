@@ -34,13 +34,13 @@
 	  	<div ng-controller="homeCtrl" layout="column" style="margin-bottom: 70px">
 		    <md-sidenav  md-component-id="left" style=" width:200;margin-top:50px">
 		      <md-content layout-margin>
-		      	<md-button type="text" ui-sref="home" class="list-group-item list-group-item-info" style="margin-left:10px">
+		      	<md-button type="text" ui-sref="home" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px">
 					Página inicial
 				</md-button>
-				<md-button type="text" ui-sref="filmes" class="list-group-item list-group-item-info" style="margin-left:10px">
+				<md-button type="text" ui-sref="filmes" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px">
 					Filmes em cartaz
 				</md-button>
-				<md-button type="text" ui-sref="perfil" class="list-group-item list-group-item-info" style="margin-left:10px" ng-show="usuarioLogado">
+				<md-button type="text" ui-sref="perfil" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px" ng-show="usuarioLogado">
 					Meu Perfil
 				</md-button>
 		      </md-content>
