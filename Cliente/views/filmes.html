@@ -3,8 +3,8 @@
 	<span>
 		<span flex-xs flex-gt-xs="50" layout="row" style="margin:0px auto">
 	  		<h3><b>Filtrar por</b></h3>
-			<md-select class="md-errors-spacer" style="margin-left:10px;margin-top:10px" ng-model="tipoDeFiltragem" placeholder="Selecione">
-				<md-option ng-repeat="tipo in tiposDeFiltragem" ng-value="tipo">
+			<md-select class="md-errors-spacer" style="margin-left:10px;margin-top:10px" ng-model="tipoDeFiltragem" placeholder="Selecione" id="filtroFilme">
+				<md-option ng-repeat="tipo in tiposDeFiltragem" ng-value="tipo" id="tipoFiltro">
 					<h4>{{tipo}}</h4>
 				</md-option>
 			</md-select>
@@ -27,11 +27,11 @@
 		</span>
 
 		<span flex-xs flex-gt-xs="50" layout="row" ng-if="filtros.length!=0" style="margin:0px auto; margin-top:-30px">
-			<h3><b>Filtros: </b></h3> 
+			<h3><b>Filtros: </b></h3>
 			<form ng-repeat="filtro in filtros" style="margin-top:25px; margin-left:10px">
 				<span type="text" name="focus"  style="text-align:left">
 					{{filtro}}<button class="close-icon-filter" ng-click="removerFiltro(filtro)" type="reset"></button>
-				 </span>	 
+				 </span>
 			</form>
 		</span>
 	</span>
@@ -70,9 +70,9 @@
 			    	</tr>
 			    </tbody>
 			</table>
-			<md-button class="md-raised md-warn md-hue-2" style="background-color:#9f0606" ui-sref="compra" ng-click="selecionarFilme(filme)">Selecionar Filme</md-button>
+			<md-button class="md-raised md-warn md-hue-2" style="background-color:#9f0606" ui-sref="compra" ng-click="selecionarFilme(filme)" id="selecionarFilme">Selecionar Filme</md-button>
 	    </md-card>
     </div>
-    <button ng-click="criarFilmes()">Criar filmes</button> 
-	<button ng-click="apagarFilmes()">Apagar filmes</button> 
+    <button ng-click="criarFilmes()">Criar filmes</button>
+	<button ng-click="apagarFilmes()">Apagar filmes</button>
 </div>

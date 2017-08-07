@@ -21,9 +21,6 @@ angular.module("cines")
 		);
 	}
 
-  $scope.showScope = function () {
-    console.log($rootScope);
-  };
 
   function mostrarToast(frase){
 		$mdToast.show(

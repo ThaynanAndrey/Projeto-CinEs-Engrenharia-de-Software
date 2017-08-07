@@ -9,23 +9,23 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-	</head>	
+	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top" style="z-index: 1000;background-color:#002d60">
 		    <div ng-controller="homeCtrl">
 		      	<div class="navbar-header">
-					<md-button style="color:white; font-size: 25px;text-transform: none" ng-click="toggleLeft()">
+					<md-button style="color:white; font-size: 25px;text-transform: none" ng-click="toggleLeft()" id="menu">
 						Menu
 					</md-button>
 		    	</div>
-		    	<img style="margin-top:5px;margin-bottom:-50px;margin-left:38%" src="images/logoMarca.jpg">				
+		    	<img style="margin-top:5px;margin-bottom:-50px;margin-left:38%" src="images/logoMarca.jpg">
 		    	<div class="navbar-header" style="float:right" ng-hide="usuarioLogado">
-				    <md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ui-sref="login">
+				    <md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ui-sref="login" id="login">
 				    	Login
 				    </md-button>
 				</div>
 				<div class="navbar-header" style="float:right" ng-show="usuarioLogado">
-					<md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ng-click="logout()">
+					<md-button class="md-raised" style="color: #002d60; font-weight:bold; text-transform: none;font-size: 17px" ng-click="logout()" id="logout">
 						Logout
 					</md-button>
 				</div>
@@ -34,13 +34,13 @@
 	  	<div ng-controller="homeCtrl" layout="column" style="margin-bottom: 70px">
 		    <md-sidenav  md-component-id="left" style=" width:200;margin-top:50px">
 		      <md-content layout-margin>
-		      	<md-button type="text" ui-sref="home" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px">
+		      	<md-button type="text" ui-sref="home" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px" id="paginaInicial">
 					Página inicial
 				</md-button>
-				<md-button type="text" ui-sref="filmes" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px">
+				<md-button type="text" ui-sref="filmes" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px" id="filmesCartaz">
 					Filmes em cartaz
 				</md-button>
-				<md-button type="text" ui-sref="perfil" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px" ng-show="usuarioLogado">
+				<md-button type="text" ui-sref="perfil" ng-click="closeSidenav()" class="list-group-item list-group-item-info" style="margin-left:10px" ng-show="usuarioLogado" id="meuPerfil">
 					Meu Perfil
 				</md-button>
 		      </md-content>

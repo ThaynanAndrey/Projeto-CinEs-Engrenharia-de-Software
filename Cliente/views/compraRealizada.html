@@ -5,11 +5,11 @@
     <span ng-repeat="cadeira in cadeirasSelecionadas" >
       <span><b>N° {{cadeira}}:</b></span>
       <img ng-src="{{qrCode}}" alt="Washed Out">
-    </span > 
+    </span >
     </br>
   </div>
   <div>
-    <md-button class="md-raised md-primary" ui-sref="filmes">Realizar outra compra</md-button>
-    <md-button class="md-raised md-primary" ui-sref="home">Voltar para a página inicial</md-button>
+    <md-button class="md-raised md-primary" ui-sref="filmes" id="realizarOutraCompra">Realizar outra compra</md-button>
+    <md-button class="md-raised md-primary" ui-sref="home" id="paginaInicial">Voltar para a página inicial</md-button>
   </div>
 </div>
