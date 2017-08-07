@@ -7,11 +7,12 @@ describe("Testando o  AngularJs",function(){
   beforeEach(module("cines"));
 
   describe("Testando o AngularJS compraCtrl",function(){
-    let scope,ctrl;
+    let scope,ctrl,rootScope;
 
     beforeEach(inject(function($controller,$rootScope){
       scope = $rootScope.$new();
-      ctrl = $controller("compraCtrl", {$scope:scope});
+      rootScope = $rootScope;
+      ctrl = $controller("compraCtrl", {$scope:scope,$rootScope:rootScope});
     }));
 
     it("Deve inicializar os atributos no scope",function(){
@@ -25,6 +26,13 @@ describe("Testando o  AngularJs",function(){
       expect(scope.cadeiraDisponivelPath).toBeDefined();
       expect(scope.cadeiraDisponivelPath).toBe(disponivelPath);
 
+    });
+    it("Metodo selecionarSessao deve setar a sessao selecionada", function(){
+      let sessao = { horario: new Date(),
+       cadeiras:[{}],
+       cadeirasOcupadas: 0 };
+       scope.selecionarSessao(sessao);
+       expect(rootScope.sessaoSelecionada).toBe(sessao);
     });
 
     it("Metodo getCorDeCadeira deve retornar cadeiraSelecionadaPath", function(){
@@ -43,6 +51,12 @@ describe("Testando o  AngularJs",function(){
       let cadeira = {disponivel: false,selecionada: false };
       let cadeiras = [];
       expect(scope.getCorDeCadeira(cadeira)).toBe(indisponivelPath);
+    });
+    it("Metodo selecionarCadeira deve alterar o estado das cadeiras", function(){
+      let cadeira = {disponivel: true,selecionada: false, numeracao: 1};
+      let cadeiras = [{disponivel: true,selecionada: false, numeracao: 1}];
+      scope.selecionarCadeira(cadeira,cadeiras);
+      expect(cadeiras[0].selecionada).toBe(true);
     });
   });
 });
