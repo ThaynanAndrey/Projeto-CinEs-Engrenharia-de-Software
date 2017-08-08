@@ -31,4 +31,4 @@ let usuarioSchema = new Schema({
 
 let usuario = mongoose.model('Usuario',usuarioSchema);
 
-module.exports = usuario;
+module.exports = usuario;//NOPMD

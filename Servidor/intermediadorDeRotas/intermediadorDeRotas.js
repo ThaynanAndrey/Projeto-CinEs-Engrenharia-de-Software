@@ -1,4 +1,4 @@
-intermediadorDeRotas = {};
+var intermediadorDeRotas = {};
 
 let filmeRota = require('../rotas/FilmeRota.js');
 let usuarioRota = require('../rotas/UsuarioRota.js');
@@ -15,4 +15,4 @@ intermediadorDeRotas.set = function set(app){
 	app.use('/api/ingresso', ingressoRota);
 }
 
-module.exports = intermediadorDeRotas;
+module.exports = intermediadorDeRotas; //NOPMD

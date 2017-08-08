@@ -2,9 +2,9 @@ describe("Testando o  AngularJs",function(){
   beforeEach(module("cines"));
 
   describe("Testando o AngularJS filmesCtrl",function(){
-    let scope,ctrl;
+    var scope,ctrl;
 
-    let filtro= 12;
+    var filtro= 12;
 
     beforeEach(inject(function($controller,$rootScope){
       scope = $rootScope.$new();
@@ -48,13 +48,13 @@ describe("Testando o  AngularJs",function(){
     });
 
     it("mostrarFilme deve retornar false caso o search não seja substring do filme",function(){
-      filme = {nome: "MULHER MARAVILHA"};
+      var filme = {nome: "MULHER MARAVILHA"};
       scope.searched = "HOMEM";
       expect(false).toEqual(scope.mostrarFilme(filme));
     });
 
     it("mostrarFilme deve retornar true caso o search não seja substring do filme",function(){
-      filme = {nome: "MULHER MARAVILHA"};
+      var filme = {nome: "MULHER MARAVILHA"};
       scope.searched = "MULHER";
       expect(true).toEqual(scope.mostrarFilme(filme));
     });

@@ -84,4 +84,4 @@ ingressoRouter.put('/:id', function(req, res) {
 });
 
 
-module.exports = ingressoRouter;
+module.exports = ingressoRouter;//NOPMD

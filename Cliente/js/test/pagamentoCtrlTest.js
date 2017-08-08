@@ -2,7 +2,7 @@ describe("Testando o  AngularJs",function(){
   beforeEach(module("cines"));
 
   describe("Testando o AngularJS pagamentoCtrl",function(){
-    let scope,ctrl;
+    var scope,ctrl;
 
 
     beforeEach(inject(function($controller,$rootScope){

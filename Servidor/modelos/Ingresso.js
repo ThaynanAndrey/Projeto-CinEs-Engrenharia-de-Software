@@ -21,4 +21,4 @@ let ingressoSchema = new Schema({
 
 let ingresso = mongoose.model('Ingresso', ingressoSchema);
 
-module.exports = ingresso;
+module.exports = ingresso;//NOPMD

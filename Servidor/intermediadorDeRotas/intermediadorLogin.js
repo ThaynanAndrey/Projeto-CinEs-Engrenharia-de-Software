@@ -3,7 +3,7 @@ let loginRouter = express.Router();
 let Usuario = require('../modelos/Usuario.js');
 let jwt = require('jsonwebtoken');
 
-intermediadorLogin = {};
+var intermediadorLogin = {};
 
 intermediadorLogin.set = function set(app){
 
@@ -11,7 +11,9 @@ intermediadorLogin.set = function set(app){
 
     Usuario.findOne({ email: req.body.email }, function(err, user) {
 
-      if (err) throw err;
+      if (err){
+    	  throw err;
+      }
 
       if (!user) {
         res.json({ success: false, message: 'Usuario não encontrado' });
@@ -39,4 +41,4 @@ intermediadorLogin.set = function set(app){
   });
 }
 
-module.exports = intermediadorLogin;
+module.exports = intermediadorLogin;//NOPMD

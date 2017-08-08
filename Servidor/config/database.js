@@ -1,4 +1,4 @@
-let MongoClient = require('mongodb').MongoClient
+var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
  
 // Connection URL 

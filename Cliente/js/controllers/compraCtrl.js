@@ -11,8 +11,9 @@ angular.module("cines")
 	$scope.cadeiraDisponivelPath = "images/cadeiraDisponivel.jpg";
 
 	$scope.selecionarCadeira = function(cadeira, cadeiras){
-		if(cadeira.disponivel)
+		if(cadeira.disponivel){
 			alterarEstadoDeCadeira(cadeira, cadeiras);
+		}
 	}
 
 	function getFimDeCartaz(){
@@ -31,18 +32,23 @@ angular.module("cines")
 	}
 
 	$scope.getCorDeCadeira = function(cadeira){
+		var cor;
 		if(cadeira.disponivel)
-			if(cadeira.selecionada)
-				return $scope.cadeiraSelecionadaPath;
-			else
-				return $scope.cadeiraDisponivelPath;
-		else
-			return $scope.cadeiraIndisponivelPath;
+			if(cadeira.selecionada){
+				cor = $scope.cadeiraSelecionadaPath;
+			}
+			else{
+				cor = $scope.cadeiraDisponivelPath;
+			}
+		else{
+			cor = $scope.cadeiraIndisponivelPath;
+		}
+		return cor;
 	};
 
 	function alterarEstadoDeCadeira(cadeira, cadeiras){
-		for (i = 0; i < cadeiras.length; i++){
-			if(cadeiras[i].numeracao == cadeira.numeracao)
+		for (var i = 0; i < cadeiras.length; i++){
+			if(cadeiras[i].numeracao == cadeira.numeracao){
 				if(cadeira.selecionada){
 					cadeiras[i].selecionada = false;
 					$rootScope.cadeirasSelecionadas.splice($rootScope.cadeirasSelecionadas.indexOf(cadeira.numeracao), 1);
@@ -51,7 +57,7 @@ angular.module("cines")
 					cadeiras[i].selecionada = true;
 					$rootScope.cadeirasSelecionadas.push(cadeira.numeracao);
 				}
-
+			}
 		}
 	};
 	$scope.selecionarSessao = function (sessao) {

@@ -10,7 +10,7 @@ angular.module("cines")
 
 	$scope.logout = function () {
 		console.log("logout")
-		$rootScope.usuarioLogado = undefined;
+		$rootScope.usuarioLogado = undefined; //NOPMD
 		$state.go('home');
 	};
 

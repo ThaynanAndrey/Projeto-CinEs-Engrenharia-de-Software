@@ -30,58 +30,70 @@ angular.module("cines")
 	};
 
 	function validarFiltroPorNome(filme){
-		if($scope.searched)
-			return filme.nome.toLowerCase().indexOf($scope.searched.toLowerCase())>-1;
-		else
-			return true
+		var valido = true;
+		if($scope.searched){
+			valido = filme.nome.toLowerCase().indexOf($scope.searched.toLowerCase())>-1;
+		}
+		return valido;
+
 	}
 
 	function validarFiltroPorClassificacao(filme){
-		if($scope.filtros.length==0)
+		if($scope.filtros.length===0){
 			return true
-
-		let temClassificacao = false;
-		let classificacaoValida = false;
+		}
+		var valido;
+		var temClassificacao = false;
+		var classificacaoValida = false;
 		$scope.filtros.forEach(function(filtro){
 			if(!isNaN(filtro)){
 				temClassificacao = true;
-				if(filme.classificacao==filtro)
+				if(filme.classificacao===filtro){
 					classificacaoValida = true;
+				}
 			}
 		});
-		if(!temClassificacao)
-			return true;
-		else
-			return classificacaoValida;
+		if(!temClassificacao){
+			valido = true;
+		}
+		else{
+			valido = classificacaoValida;
+		}
+		return valido;
 	}
 
 	function validarFiltroPorGenero(filme){
-		if($scope.filtros.length==0)
+		if($scope.filtros.length===0){
 			return true
-
-		let temGenero = false;
-		let generosValidos = true;
+		}
+		var valido;
+		var temGenero = false;
+		var generosValidos = true;
 		$scope.filtros.forEach(function(filtro){
 			if(isNaN(filtro)){
 				temGenero = true;
-				if(filme.genero.indexOf(filtro)==-1){
+				if(filme.genero.indexOf(filtro)===-1){
 					generosValidos = false;
 				}
 			}
 		});
-		if(!temGenero)
-			return true;
-		else
-			return generosValidos;
+		if(!temGenero){
+			valido = true;
+		}
+		else{
+			valido = generosValidos;
+		}
+		return valido;
 	}
 
 	$scope.adcFiltro = function(){
-		if($scope.filtros.indexOf($scope.filtro)==-1 && $scope.filtro!=undefined)
+		if($scope.filtros.indexOf($scope.filtro)==-1 && $scope.filtro!=undefined){
 			$scope.filtros.push($scope.filtro);
+		}
 	};
 
 	$scope.removerFiltro = function(filtro){
-		for (i=0;i<$scope.filtros.length;i++){
+		for (var i=0;i<$scope.filtros.length;i++){
 			if($scope.filtros[i]==filtro){
 				$scope.filtros.splice(i,1);
 			}
@@ -103,17 +115,21 @@ angular.module("cines")
 	$scope.apagarFilmes = function(){
 		RestService.find('http://localhost:8080/api/filme', function(response) {
 			console.log("APAGOU");
-			for(i=0;i<response.data.length;i++){
+			for(var i=0;i<response.data.length;i++){
 				RestService.delete('http://localhost:8080/api/filme/'+response.data[i]._id);
 			}
 		});
 	}
 
 	$scope.mostrarClassificacao = function(classificacao){
-		if(classificacao==0)
-			return "Livre"
-		else
-			return classificacao
+		var clas;
+		if(classificacao===0){
+			clas = "Livre"
+		}
+		else{
+			clas = classificacao
+		}
+		return clas;
 	}
 
 	$scope.criarFilmes = function (){
@@ -238,10 +254,10 @@ angular.module("cines")
 	        ]
     	}
 
-    	let filmesAdc = [mulherMaravilha, aMumia, homemAranhaLegendado, transformers, homemAranhaDublado];
-    	for(k=0;k<filmesAdc.length;k++){
-    		for(i=0;i<filmesAdc[k].sessoes.length;i++){
-				for(j=1;j<85;j++){
+    	var filmesAdc = [mulherMaravilha, aMumia, homemAranhaLegendado, transformers, homemAranhaDublado];
+    	for(var k=0;k<filmesAdc.length;k++){
+    		for(var i=0;i<filmesAdc[k].sessoes.length;i++){
+				for(var j=1;j<85;j++){
 					filmesAdc[k].sessoes[i].cadeiras.push({numeracao:j,
 														   disponivel:true,
 														   selecionada:false});

@@ -29,8 +29,9 @@ angular.module("cines")
         mostrarToast("Usuário cadastrado com sucesso!");
         $state.go('login');
       }
-      else
+      else{
         mostrarToast("Insira um CPF e Email que nunca foram cadastrados.");
+      }
     });
 
 

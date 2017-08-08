@@ -5,10 +5,12 @@ angular.module("cines")
   $scope.logar = function (usuario) {
     RestService.add("http://localhost:8080/api/authenticate/", usuario, function(response){
       $rootScope.usuarioLogado = response.data.usuario;
-      if(response.data.usuario)
+      if(response.data.usuario){
       	$state.go('home');
-      else
+      }
+      else{
       	mostrarToast("Dados inválidos. Tente novamente.");
+      }
     });
   }
 

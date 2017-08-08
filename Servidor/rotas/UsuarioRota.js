@@ -85,4 +85,4 @@ usuarioRouter.put('/:id', function(req, res) {
 	});
 });
 
-module.exports = usuarioRouter;
+module.exports = usuarioRouter;//NOPMD

@@ -7,10 +7,10 @@ describe("Testando o  AngularJs",function(){
   beforeEach(module("cines"));
 
   describe("Testando o AngularJS compraCtrl",function(){
-    let scope,ctrl;
+    var scope,ctrl;
 
     beforeEach(inject(function($controller,$rootScope){
-      scope = $rootScope.$new();
+      scope = $rootScope.$new();//NOPMD
       ctrl = $controller("compraCtrl", {$scope:scope});
     }));
 

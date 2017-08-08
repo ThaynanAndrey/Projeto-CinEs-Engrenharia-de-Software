@@ -41,4 +41,4 @@ app.use(session({
   secret: 'keyboard cat'
 }));
 
-module.exports = app;
+module.exports = app;//NOPMD

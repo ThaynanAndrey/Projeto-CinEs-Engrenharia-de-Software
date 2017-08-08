@@ -53,4 +53,4 @@ let filmeSchema = new Schema({
 
 let filme = mongoose.model('Filme', filmeSchema);
 
-module.exports = filme;
+module.exports = filme;//NOPMD
