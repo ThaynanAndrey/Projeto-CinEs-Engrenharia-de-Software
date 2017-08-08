@@ -14,12 +14,8 @@ describe("Testando o  AngularJs",function(){
       expect(scope.user).toBeDefined();
       expect(scope.user).toEqual({ entradaMeia: 0, entradaInteira: 0, numeroCartao: '', codigoDeSeguranca: '', validadeCartao: '' });
 
-
-
       expect(scope.qrCode).toBeDefined();
       expect(scope.qrCode).toBe("../../images/qrcode.40772041.png");
-
-
     });
 
     it("Preco do ingresso deve ser calculado de forma correta",function(){

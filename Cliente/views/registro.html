@@ -1,81 +1,29 @@
-<!--  <div style="padding-left: 20%; padding-right: 20%;" flex>
- 	<h1><b>Registro</b></h1>
-  <form name="registroForm">
-    <md-content flex>
-      <div>
-        <md-input-container class="md-block">
-          <label>Nome</label>
-          <input required ng-model="registro.nome">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>E-mail</label>
-          <input required ng-model="registro.email">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>Senha</label>
-          <input required type="password" ng-model="registro.senha">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>Repita a Senha</label>
-          <input required type="password" ng-model="registro.repetirSenha">
-        </md-input-container>
-
-        <md-input-container class="md-block">
-          <label>CPF</label>
-          <input required ng-model="registro.cpf">
-        </md-input-container>
-      </div>
-
-      <div class="md-padding" id="popupContainer">
-        <md-input-container class="md-block">
-          <md-checkbox name="tos" ng-model="project.tos" required>
-            Eu estou de acordo com os <a id="termos" ng-click="showAlert($event)" >termos de uso.</a>
-          </md-checkbox>
-          <div ng-messages="projectForm.tos.$error" multiple md-auto-hide="false">
-            <div ng-message="required">
-              Para prosseguir você deve concordar com os termos de uso.
-            </div>
-          </div>
-        </md-input-container>
-      </div>
-    </md-content>
-  </form>
-  <md-button class="animation-target md-primary md-raised" ng-click="registrar(registro)" ng-disabled="registroForm.$invalid">
-    Registrar
-  </md-button>
-
-</div>
- -->
-
 <div class="col-md-6 col-md-offset-3">
     <h2>Cadastro</h2>
     <form name="form" ng-submit="registrar(registro)" role="form">
         <div class="form-group" ng-class="{ 'has-error': form.nome.$dirty && form.nome.$error.required }">
             <label for="username">Nome</label>
-            <input type="text" name="nome" id="nome" class="form-control" ng-model="registro.nome" required />
+            <input type="text" name="nome" id="nome" class="form-control" ng-model="registro.nome" required id="nomeCadastro"/>
             <span ng-show="form.nome.$dirty && form.nome.$error.required" class="help-block">Nome obrigatório</span>
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.cpf.$dirty && form.cpf.$error.required }">
             <label for="cpf">CPF</label>
-            <input type="text" name="cpf" id="cpf" class="form-control" ng-model="registro.cpf" required />
+            <input type="text" name="cpf" id="cpf" class="form-control" ng-model="registro.cpf" required id="cpfCadastro"/>
             <span ng-show="form.cpf.$dirty && form.cpf.$error.required" class="help-block">CPF obrigatório</span>
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
             <label for="email">Email</label>
-            <input type="text" name="email" id="Text1" class="form-control" ng-model="registro.email" required />
+            <input type="text" name="email" id="Text1" class="form-control" ng-model="registro.email" required id="emailCadastro"/>
             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email obrigatório</span>
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password">Senha</label>
-            <input type="password" name="username" id="username" class="form-control" ng-model="registro.senha" required />
+            <input type="password" name="username" id="username" class="form-control" ng-model="registro.senha" required id="senhaCadastro"/>
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Senha obrigatória</span>
         </div>
         <div class="md-padding" id="popupContainer">
           <md-input-container class="md-block" style="margin-left:-17px; margin-top:-8px;margin-bottom:-8px">
-            <md-checkbox name="tos" ng-model="project.tos" required>
+            <md-checkbox name="tos" ng-model="project.tos" required id="checkboxCadastro">
               Eu estou de acordo com os <a id="termos" ng-click="showAlert($event)" >termos de uso.</a>
             </md-checkbox>
             <div ng-messages="projectForm.tos.$error" multiple md-auto-hide="false">
@@ -86,9 +34,8 @@
           </md-input-container>
         </div>
         <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button>
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" id="sumbitCadastro">Register</button>
             <a href="#!/login" class="btn btn-link">Cancelar</a>
         </div>
     </form>
 </div>
-

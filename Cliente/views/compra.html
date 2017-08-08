@@ -6,8 +6,8 @@
 		<md-datepicker ng-model="dataSelecionada" md-min-date="dataAtual" md-max-date="fimDeCartaz"
 			md-placeholder="Enter date" style="margin-right:20px; margin-top:15px;"></md-datepicker>
 		<h3><b>Horários: </b></h3>
-		<md-select class="md-errors-spacer" style="margin-left:10px" ng-model="horarioSelecionado" placeholder="Selecione">
-			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario" ng-click="selecionarSessao(sessao)">
+		<md-select class="md-errors-spacer" style="margin-left:10px" ng-model="horarioSelecionado" placeholder="Selecione" id="selecionarSessao">
+			<md-option ng-repeat="sessao in filmeSelecionado.sessoes" ng-value="sessao.horario" ng-click="selecionarSessao(sessao)" id="horarioSessao">
 				{{formatarData(sessao.horario)}}
 			</md-option>
 		</md-select>
@@ -18,16 +18,16 @@
 		<form flex-xs flex-gt-xs="80" style="min-width: 850px;max-width: 850px;">
 			<div id="wid">
 				<img ng-repeat="cadeira in sessaoSelecionada.cadeiras" title="Numeração: {{cadeira.numeracao}}"
-				 ng-click="selecionarCadeira(cadeira, sessaoSelecionada.cadeiras)" data-ng-src="{{getCorDeCadeira(cadeira)}}">
+				 ng-click="selecionarCadeira(cadeira, sessaoSelecionada.cadeiras)" data-ng-src="{{getCorDeCadeira(cadeira)}}" id="selecionarCadeira">
 			</div>
 			<img style="margin-top:10px" src="images/tela.jpg">
 		</form>
 		</br>
 		<div layout="row">
-			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined || cadeirasSelecionadas.length===0" ui-sref="pagamento" >Realizar compra</md-button>
+			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined || cadeirasSelecionadas.length===0" ui-sref="pagamento" id="realizarCompra">Realizar compra</md-button>
 			<span ng-hide="usuarioLogado">
-				Realize <a href="#!/login" ng-hide="usuarioLogado">login</a> ou
-				<a href="#!/registro" ng-hide="usuarioLogado" >cadastre-se</a> para realizar a compra.
+				Realize <a href="#!/login" ng-hide="usuarioLogado" id="loginSelecionarCadeira">login</a> ou
+				<a href="#!/registro" ng-hide="usuarioLogado" id="registroSelecionarCadeira">cadastre-se</a> para realizar a compra.
 			<span>
 		</div>
 	</div>

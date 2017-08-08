@@ -7,7 +7,7 @@ angular.module("cines")
 							nome: "Nome"};
 
 	$scope.tiposDeGenero = ["Ação","Aventura","Comédia","Drama",
-							"Fantasia","Romance","Suspense","Terror"]; 
+							"Fantasia","Romance","Suspense","Terror"];
 
 	$scope.tiposDeClassificacoes = [0,10,12,14,16,18];
 
@@ -20,7 +20,7 @@ angular.module("cines")
 	};
 
 	$scope.mostrarFilme = function(filme){
-		return validarFiltroPorGenero(filme) 
+		return validarFiltroPorGenero(filme)
 			&& validarFiltroPorClassificacao(filme)
 			&& validarFiltroPorNome(filme);
 	};
@@ -133,7 +133,6 @@ angular.module("cines")
 	}
 
 	$scope.criarFilmes = function (){
-		console.log("CRIOU");
 		let aMumia = {
 	        nome: "A Múmia (LEGENDADO)",
 	        imagem: "../../images/aMumia.jpg",

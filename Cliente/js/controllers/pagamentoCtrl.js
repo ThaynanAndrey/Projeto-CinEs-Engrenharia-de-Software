@@ -36,7 +36,6 @@ angular.module("cines")
 	}
 
 	function gerarIngressos() {
-		console.log("INGRESSOS!");
 		for (var i = 0; i < $rootScope.cadeirasSelecionadas.length; i++) {
 			let novoIngresso = {
 				qrCode: "../../images/qrcode.40772041.png",

@@ -2,14 +2,14 @@ describe("Testando o  AngularJs",function(){
   beforeEach(module("cines"));
 
   describe("Testando o AngularJS filmesCtrl",function(){
-    var scope,ctrl;
+    var scope,ctrl,rootScope;
 
     var filtro= 12;
 
     beforeEach(inject(function($controller,$rootScope){
       scope = $rootScope.$new();
-      ctrl = $controller("filmesCtrl", {$scope:scope});
-      console.log(ctrl);
+      rootScope = $rootScope;
+      ctrl = $controller("filmesCtrl", {$scope:scope, $rootScope:rootScope});
     }));
 
     it("Deve inicializar os atributos no scope",function(){
@@ -58,5 +58,31 @@ describe("Testando o  AngularJs",function(){
       scope.searched = "MULHER";
       expect(true).toEqual(scope.mostrarFilme(filme));
     });
+    it("mostrarFilme deve retornar true caso a classificacao seja valida",function(){
+      var filme = {nome: "MULHER MARAVILHA"};
+      scope.filtros = [5]
+      expect(false).toEqual(scope.mostrarFilme(filme));
+    });
+
+
+    it("selecionarFilme deve setar o filme selecionado",function(){
+      var filme = {nome: "MULHER MARAVILHA"};
+      scope.selecionarFilme(filme);
+      expect(rootScope.filmeSelecionado).toBe(filme);
+    });
+    it("limparFiltragemPorNome deve limpar a filtragem",function(){
+      scope.searched = "Alguma coisa";
+      scope.limparFiltragemPorNome();
+      expect(scope.searched).toBe("");
+    });
+    it("mostrarClassificacao deve retornar Livre caso seja 0 ou a propria classificacao",function(){
+      var classificacao = 0;
+      expect(scope.mostrarClassificacao(classificacao)).toBe("Livre");
+      classificacao =1;
+      expect(scope.mostrarClassificacao(classificacao)).toBe(classificacao);
+    });
+
+
+
   });
 });
