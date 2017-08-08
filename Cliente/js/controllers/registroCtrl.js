@@ -18,14 +18,14 @@ angular.module("cines")
     novoUsuario.senha = registro.senha,
     novoUsuario.cpf = registro.cpf
 
-    RestService.find('http://localhost:8080/api/usuario', function(response) {
+    RestService.find('api/usuario', function(response) {
       response.data.forEach(function(usuario){
         if(novoUsuario.email == usuario.email || novoUsuario.cpf == usuario.cpf){
           usuarioValido = false;
         }
       });
       if(usuarioValido){
-        RestService.add("http://localhost:8080/api/usuario/",novoUsuario);
+        RestService.add("api/usuario/",novoUsuario);
         mostrarToast("Usuário cadastrado com sucesso!");
         $state.go('login');
       }

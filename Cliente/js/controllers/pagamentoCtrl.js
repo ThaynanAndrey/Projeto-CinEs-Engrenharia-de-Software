@@ -32,7 +32,7 @@ angular.module("cines")
 				}
 			}
 		}
-		RestService.edit("http://localhost:8080/api/filme/"+$rootScope.filmeSelecionado._id,$rootScope.filmeSelecionado);
+		RestService.edit("api/filme/"+$rootScope.filmeSelecionado._id,$rootScope.filmeSelecionado);
 	}
 
 	function gerarIngressos() {
@@ -42,9 +42,9 @@ angular.module("cines")
 				numeroDaCadeira: $rootScope.cadeirasSelecionadas[i],
 				filme: $rootScope.filmeSelecionado._id
 			};
-			RestService.add("http://localhost:8080/api/ingresso/",novoIngresso, function (response) {
+			RestService.add("api/ingresso/",novoIngresso, function (response) {
 				$rootScope.usuarioLogado.ingressos.push(response.data._id);
-				RestService.edit("http://localhost:8080/api/usuario/" + $rootScope.usuarioLogado._id, $rootScope.usuarioLogado);
+				RestService.edit("api/usuario/" + $rootScope.usuarioLogado._id, $rootScope.usuarioLogado);
 			});
 		}
 		//RestService.edit("http://localhost:8080/api/usuario/" + $rootScope.usuarioLogado._id, $rootScope.usuarioLogado);
