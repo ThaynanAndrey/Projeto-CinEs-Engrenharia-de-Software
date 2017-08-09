@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
+mongoose.connect('mongodb://rafael:rafael@ds129600.mlab.com:29600/cines',function(err,db){
   if(err) {
     console.log("erro: " + err);
   } else {
