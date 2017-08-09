@@ -8,8 +8,6 @@ let session = require('express-session');
 let cors = require('cors');
 let app = express();
 
-const port = process.env.PORT || 8080;
-
 app.use(cors());
 
 mongoose.connect('mongodb://rafael:rafael@ds129600.mlab.com:29600/cines',function(err,db){
@@ -30,8 +28,8 @@ let intermediadorLogin = require('./intermediadorDeRotas/intermediadorLogin');
 intermediadorDeRotas.set(app);
 intermediadorLogin.set(app);
 
-app.listen(port, function(){
-  console.log("Servidor está correndo na porta 8080");
+app.listen(process.env.PORT || 8080, function(){
+  console.log("Servidor está correndo");
 });
 
 app.set('superSecret', config.secret);

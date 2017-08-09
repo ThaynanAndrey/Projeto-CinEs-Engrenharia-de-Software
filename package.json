@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
+    "start": "npm install && node app",
     "test": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha 'test/*.js'"
   },
   "repository": {
