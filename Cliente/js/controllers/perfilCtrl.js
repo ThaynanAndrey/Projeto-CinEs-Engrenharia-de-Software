@@ -5,7 +5,7 @@ angular.module("cines")
 
 	function getFilmeDeIngresso(){
 		$rootScope.usuarioLogado.ingressos.forEach(function(ingressoId){
-			RestService.find('api/ingresso/'+ingressoId, function(ingresso) {
+			RestService.find('http://localhost:8080/api/ingresso/'+ingressoId, function(ingresso) {
 				$scope.ingressos.push({
 					filme: ingresso.data.filme.nome,
 					cadeira: ingresso.data.numeroDaCadeira

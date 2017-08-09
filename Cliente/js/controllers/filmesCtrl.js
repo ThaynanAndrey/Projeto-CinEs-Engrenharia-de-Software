@@ -103,7 +103,7 @@ angular.module("cines")
 	atualizarListaFilmes();
 
 	function atualizarListaFilmes(){
-		RestService.find('api/filme', function(response) {
+		RestService.find('http://localhost:8080/api/filme', function(response) {
 			$scope.filmes = response.data;
 		});
 	}
@@ -113,10 +113,10 @@ angular.module("cines")
 	}
 
 	$scope.apagarFilmes = function(){
-		RestService.find('api/filme', function(response) {
+		RestService.find('http://localhost:8080/api/filme', function(response) {
 			console.log("APAGOU");
 			for(var i=0;i<response.data.length;i++){
-				RestService.delete('api/filme/'+response.data[i]._id);
+				RestService.delete('http://localhost:8080/api/filme/'+response.data[i]._id);
 			}
 		});
 	}
@@ -262,7 +262,7 @@ angular.module("cines")
 														   selecionada:false});
 				}
 			}
-			RestService.add("api/filme/",filmesAdc[k]);
+			RestService.add("http://localhost:8080/api/filme/",filmesAdc[k]);
     	}
 	}
 }]);

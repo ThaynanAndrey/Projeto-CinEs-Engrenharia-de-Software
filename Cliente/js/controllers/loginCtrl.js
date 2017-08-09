@@ -3,7 +3,7 @@ angular.module("cines")
 .controller("loginCtrl", ['$scope','$rootScope', '$state','RestService', '$mdToast', function($scope,$rootScope, $state,RestService,$mdToast) {
 
   $scope.logar = function (usuario) {
-    RestService.add("api/authenticate/", usuario, function(response){
+    RestService.add("http://localhost:8080/api/authenticate/", usuario, function(response){
       $rootScope.usuarioLogado = response.data.usuario;
       if(response.data.usuario){
       	$state.go('home');
