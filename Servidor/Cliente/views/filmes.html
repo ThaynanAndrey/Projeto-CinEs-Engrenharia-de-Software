@@ -1,0 +1,78 @@
+<div>
+	<h1 class="center"><b>Filmes em Cartaz</b></h1>
+	<span>
+		<span flex-xs flex-gt-xs="50" layout="row" style="margin:0px auto">
+	  		<h3><b>Filtrar por</b></h3>
+			<md-select class="md-errors-spacer" style="margin-left:10px;margin-top:10px" ng-model="tipoDeFiltragem" placeholder="Selecione" id="filtroFilme">
+				<md-option ng-repeat="tipo in tiposDeFiltragem" ng-value="tipo" id="tipoFiltro">
+					<h4>{{tipo}}</h4>
+				</md-option>
+			</md-select>
+			<h2> :</h2>
+			<md-select class="md-errors-spacer" ng-show="tipoDeFiltragem == tiposDeFiltragem.genero" style="margin-left:15px;margin-top:10px" ng-model="filtro" placeholder="Selecione">
+				<md-option  ng-repeat="genero in tiposDeGenero" ng-value="genero">
+					<h4>{{genero}}</h4>
+				</md-option>
+			</md-select>
+			<md-select class="md-errors-spacer" ng-show="tipoDeFiltragem == tiposDeFiltragem.classificacao" style="margin-left:15px;margin-top:10px" ng-model="filtro" placeholder="Selecione">
+				<md-option ng-repeat="classificacao in tiposDeClassificacoes" ng-value="mostrarClassificacao(classificacao)">
+					<h4>{{mostrarClassificacao(classificacao)}}</h4>
+				</md-option>
+			</md-select>
+			<form ng-show="tipoDeFiltragem == tiposDeFiltragem.nome", style="margin-top:15px; margin-left:5px">
+				<input type="text" ng-model="searched" name="focus" required class="search-box" placeholder="Insira o nome do filme" />
+				<button class="close-icon-search" ng-click="limparFiltragemPorNome()" type="reset"></button>
+			</form>
+			<md-button ng-show="tipoDeFiltragem != tiposDeFiltragem.nome" class="md-raised md-warn md-hue-2" ng-click="adcFiltro()" style="height:30px; margin-top:17px;background-color:#9f0606">Adicionar filtro</button>
+		</span>
+
+		<span flex-xs flex-gt-xs="50" layout="row" ng-if="filtros.length!=0" style="margin:0px auto; margin-top:-30px">
+			<h3><b>Filtros: </b></h3>
+			<form ng-repeat="filtro in filtros" style="margin-top:25px; margin-left:10px">
+				<span type="text" name="focus"  style="text-align:left">
+					{{filtro}}<button class="close-icon-filter" ng-click="removerFiltro(filtro)" type="reset"></button>
+				 </span>
+			</form>
+		</span>
+	</span>
+	</br>
+	<div flex-xs flex-gt-xs="50" layout="row" ng-repeat="filme in filmes" ng-show="mostrarFilme(filme)" style="margin:0px auto;margin-top:-20px">
+		<md-card style="width: 1300px;">
+	        <md-card-header>
+	        	<md-card-header-text>
+	        		<span class="md-title" >{{filme.nome}}</span>
+	            </md-card-header-text>
+	        </md-card-header>
+	       	<img ng-src="{{filme.imagem}}" class="md-card-image" alt="Washed Out">
+	    </md-card>
+
+		<md-card style="width: 1400px;">
+		  	<md-card-title>
+	        	<md-card-title-text>
+	            	<span class="md-subhead"><b>Gênero:</b> {{filme.genero}}</span>
+	            	<span class="md-subhead" ng-if="filme.classificacao!=0"><b>Classificação:</b> Proibido para menores de {{filme.classificacao}} anos</span>
+	            	<span class="md-subhead" ng-if="filme.classificacao==0"><b>Classificação:</b> Livre para todas as idades</span>
+	            	<span class="md-subhead"><b>Tempo de duração: </b>{{filme.tempoDeDuracao}}</span>
+	            	<span class="md-subhead"><b>Sinopse: </b>{{filme.sinopse}}</span>
+	            </md-card-title-text>
+	        </md-card-title>
+		  	<table class="table">
+			  	<thead class="thead-inverse">
+			    	<tr>
+			      		<th class="center">Sala</th>
+			      		<th class="center">Horário</th>
+			    	</tr>
+			  	</thead>
+			  	<tbody ng-repeat="sessao in filme.sessoes">
+			    	<tr class="center">
+			      		<td>{{filme.sala}}</td>
+			      		<td>{{formatarData(sessao.horario)}}</td>
+			    	</tr>
+			    </tbody>
+			</table>
+			<md-button class="md-raised md-warn md-hue-2" style="background-color:#9f0606" ui-sref="compra" ng-click="selecionarFilme(filme)" id="selecionarFilme">Selecionar Filme</md-button>
+	    </md-card>
+    </div>
+    <button ng-click="criarFilmes()">Criar filmes</button>
+	<button ng-click="apagarFilmes()">Apagar filmes</button>
+</div>

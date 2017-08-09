@@ -33,6 +33,12 @@
   },
   "devDependencies": {
     "body-parser": "^1.17.2",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "jasmine": "^2.7.0",
+    "jasmine-core": "^2.7.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0"
   }
 }

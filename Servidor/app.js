@@ -8,7 +8,7 @@ let session = require('express-session');
 let cors = require('cors');
 let app = express();
 
-const port = process.env.PORT;
+const port = /*process.env.PORT*/ 8080;
 
 app.use(cors());
 
@@ -22,6 +22,8 @@ mongoose.connect('mongodb://localhost:27017/cines',function(err,db){
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(express.static("Cliente"))
 
 let intermediadorDeRotas = require('./intermediadorDeRotas/intermediadorDeRotas');
 let intermediadorLogin = require('./intermediadorDeRotas/intermediadorLogin');

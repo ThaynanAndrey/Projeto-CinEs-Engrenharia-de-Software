@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for test\filmesCtrlTest.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">test/</a> filmesCtrlTest.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>55/55</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>55/55</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">describe("Testando o  AngularJs",function(){
+  beforeEach(module("cines"));
+&nbsp;
+  describe("Testando o AngularJS filmesCtrl",function(){
+    let scope,ctrl,rootScope;
+&nbsp;
+    let filtro= 12;
+&nbsp;
+    beforeEach(inject(function($controller,$rootScope){
+      scope = $rootScope.$new();
+      rootScope = $rootScope;
+      ctrl = $controller("filmesCtrl", {$scope:scope, $rootScope:rootScope});
+    }));
+&nbsp;
+    it("Deve inicializar os atributos no scope",function(){
+      expect(scope.tiposDeFiltragem).toBeDefined();
+&nbsp;
+      expect(scope.tiposDeFiltragem).toEqual({genero:"Genero",
+    							classificacao:"Classificacao",
+    							nome: "Nome"});
+&nbsp;
+      expect(scope.tiposDeGenero).toBeDefined();
+      expect(scope.tiposDeGenero).toEqual(["Ação","Aventura","Comédia","Drama",
+    							"Fantasia","Romance","Suspense","Terror"]);
+&nbsp;
+      expect(scope.tiposDeClassificacoes).toBeDefined();
+      expect(scope.tiposDeClassificacoes).toEqual([0,10,12,14,16,18]);
+&nbsp;
+      expect(scope.filtros).toBeDefined();
+      expect(scope.filtros).toEqual([]);
+&nbsp;
+      expect(scope.tipoDeFiltragem).toBeDefined();
+      expect(scope.tipoDeFiltragem).toEqual(scope.tiposDeFiltragem.nome);
+    });
+&nbsp;
+    it("metodo adcFiltro deve adicionar filtro a lista de filtros",function(){
+      scope.filtro = filtro;
+      scope.adcFiltro();
+      expect([12]).toEqual(scope.filtros);
+    });
+&nbsp;
+    it("metodo removerFiltro deve remover filtro a lista de filtros",function(){
+      scope.filtro = filtro;
+      scope.adcFiltro();
+      expect([12]).toEqual(scope.filtros);
+      scope.removerFiltro(filtro);
+      expect([]).toEqual(scope.filtros);
+    });
+&nbsp;
+    it("mostrarFilme deve retornar false caso o search não seja substring do filme",function(){
+      filme = {nome: "MULHER MARAVILHA"};
+      scope.searched = "HOMEM";
+      expect(false).toEqual(scope.mostrarFilme(filme));
+    });
+&nbsp;
+    it("mostrarFilme deve retornar true caso o search não seja substring do filme",function(){
+      filme = {nome: "MULHER MARAVILHA"};
+      scope.searched = "MULHER";
+      expect(true).toEqual(scope.mostrarFilme(filme));
+    });
+    it("mostrarFilme deve retornar true caso a classificacao seja valida",function(){
+      filme = {nome: "MULHER MARAVILHA"};
+      scope.filtros = [5]
+      expect(false).toEqual(scope.mostrarFilme(filme));
+    });
+&nbsp;
+&nbsp;
+    it("selecionarFilme deve setar o filme selecionado",function(){
+      filme = {nome: "MULHER MARAVILHA"};
+      scope.selecionarFilme(filme);
+      expect(rootScope.filmeSelecionado).toBe(filme);
+    });
+    it("limparFiltragemPorNome deve limpar a filtragem",function(){
+      scope.searched = "Alguma coisa";
+      scope.limparFiltragemPorNome();
+      expect(scope.searched).toBe("");
+    });
+    it("mostrarClassificacao deve retornar Livre caso seja 0 ou a propria classificacao",function(){
+      var classificacao = 0;
+      expect(scope.mostrarClassificacao(classificacao)).toBe("Livre");
+      classificacao =1;
+      expect(scope.mostrarClassificacao(classificacao)).toBe(classificacao);
+    });
+&nbsp;
+&nbsp;
+&nbsp;
+  });
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Aug 06 2017 11:40:43 GMT-0300 (Hora oficial do Brasil)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
