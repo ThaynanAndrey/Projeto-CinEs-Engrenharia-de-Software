@@ -26,8 +26,8 @@
 		<div layout="row">
 			<md-button style="height:30px;margin-top:-10px;margin-left:-2px" class="md-raised md-primary" ng-disabled="usuarioLogado==undefined || cadeirasSelecionadas.length===0" ui-sref="pagamento" id="realizarCompra">Realizar compra</md-button>
 			<span ng-hide="usuarioLogado">
-				Realize <a href="login" ng-hide="usuarioLogado" id="loginSelecionarCadeira">login</a> ou
-				<a href="registro" ng-hide="usuarioLogado" id="registroSelecionarCadeira">cadastre-se</a> para realizar a compra.
+				Realize <a href="#/login" ng-hide="usuarioLogado" id="loginSelecionarCadeira">login</a> ou
+				<a href="#/registro" ng-hide="usuarioLogado" id="registroSelecionarCadeira">cadastre-se</a> para realizar a compra.
 			<span>
 		</div>
 	</div>
